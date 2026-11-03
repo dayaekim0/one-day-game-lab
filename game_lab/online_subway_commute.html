@@ -1,0 +1,590 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover" />
+  <title>온라인 퇴근 지하철</title>
+  <style>
+    :root{
+      --bg:#0f1320;
+      --panel:#1b2134;
+      --panel2:#232b43;
+      --ink:#eff3ff;
+      --sub:#9fb0d8;
+      --accent:#7cd4ff;
+      --accent2:#ffcb6b;
+      --danger:#ff7b8b;
+      --good:#80e0a7;
+      --shadow:0 10px 30px rgba(0,0,0,.28);
+      --line:#36405e;
+    }
+    *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+    body{
+      margin:0; background:linear-gradient(180deg,#0a0d16,#13192a 55%,#0a0d16);
+      color:var(--ink); font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;
+      min-height:100svh; display:flex; justify-content:center;
+    }
+    .app{
+      width:min(100%,440px); min-height:100svh; padding:14px 14px 24px;
+      display:flex; flex-direction:column; gap:12px;
+    }
+    .card{
+      background:linear-gradient(180deg,var(--panel),var(--panel2));
+      border:1px solid var(--line); border-radius:20px; box-shadow:var(--shadow);
+    }
+    .hero{padding:18px}
+    .eyebrow{font-size:11px; letter-spacing:1.5px; color:var(--accent); font-weight:800}
+    h1{margin:8px 0 4px; font-size:31px; line-height:1.05; letter-spacing:-1.2px}
+    .sub{margin:0; color:var(--sub); font-size:14px; line-height:1.45}
+    .stats{display:grid; grid-template-columns:1fr 1fr 1fr; gap:10px; padding:14px}
+    .stat{padding:12px; border-radius:16px; background:rgba(255,255,255,.03); border:1px solid rgba(255,255,255,.06)}
+    .label{font-size:11px; color:var(--sub); font-weight:700; margin-bottom:8px}
+    .value{font-size:22px; font-weight:900}
+    .lineWrap{height:8px; border-radius:999px; background:#0e1220; overflow:hidden; margin-top:8px}
+    .bar{height:100%; width:0%; border-radius:999px; transition:.25s ease}
+    .stress{background:linear-gradient(90deg,#ffd66b,#ff8a7a,#ff7094)}
+    .patience{background:linear-gradient(90deg,#80e0a7,#70d2d5,#7cd4ff)}
+    .carWrap{padding:14px}
+    .carHeader{display:flex; justify-content:space-between; align-items:center; margin-bottom:10px}
+    .badge{padding:7px 10px; border-radius:999px; background:#0f1423; font-size:12px; color:var(--accent2); font-weight:800; border:1px solid #2f3957}
+    .trainCar{background:linear-gradient(180deg,#cfd8ee,#bfcbe4); border-radius:24px; padding:12px; position:relative; overflow:hidden}
+    .door{position:absolute; top:12px; bottom:12px; width:34px; background:rgba(31,39,62,.15); border:2px solid rgba(31,39,62,.22); border-radius:12px}
+    .door.left{left:10px}.door.right{right:10px}
+    .grabBar{height:14px; border-radius:999px; background:#717e9f; margin:0 42px 14px}
+    .seats{display:grid; grid-template-columns:repeat(4,1fr); gap:9px; padding:0 42px}
+    .seat{
+      min-height:86px; border:none; border-radius:16px; background:linear-gradient(180deg,#2c3960,#233150);
+      position:relative; padding:6px; color:var(--ink); text-align:center;
+      display:flex; flex-direction:column; justify-content:flex-end; align-items:center;
+      box-shadow:inset 0 0 0 1px rgba(255,255,255,.05);
+    }
+    .seat.empty{background:linear-gradient(180deg,#42547f,#334365); border:1px dashed rgba(255,255,255,.25)}
+    .seat.you{outline:3px solid var(--accent2); background:linear-gradient(180deg,#4f5e92,#38486d)}
+    .seat.standingSpot{background:linear-gradient(180deg,#253049,#1f283f)}
+    .seat.villain{outline:2px solid rgba(255,123,139,.55)}
+    .seat.friend{outline:2px solid rgba(124,212,255,.5)}
+    .avatar{font-size:30px; line-height:1; margin-bottom:4px; filter:drop-shadow(0 6px 4px rgba(0,0,0,.15))}
+    .name{font-size:11px; font-weight:800; color:#f5f8ff; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; width:100%}
+    .seatMeta{font-size:10px; color:#cfd8f2; opacity:.9}
+    .bubble{
+      margin-top:10px; min-height:76px; padding:12px 13px; border-radius:16px; background:#11182b; border:1px solid #2d3857;
+      color:#edf3ff; font-size:14px; line-height:1.5;
+    }
+    .actions{display:grid; grid-template-columns:repeat(3,1fr); gap:8px; padding:14px}
+    .btn{
+      border:none; border-radius:16px; padding:14px 10px; font-size:14px; font-weight:900; color:#0f1524;
+      background:#d8e2ff; box-shadow:var(--shadow);
+    }
+    .btn.primary{background:linear-gradient(180deg,#7cd4ff,#62bffc)}
+    .btn.warn{background:linear-gradient(180deg,#ffd66b,#ffc34e)}
+    .btn.pink{background:linear-gradient(180deg,#ffb3c2,#ff8ca5)}
+    .btn.dark{background:#0f1422; color:var(--ink); border:1px solid #33405f}
+    .btn[disabled]{opacity:.45; filter:saturate(.6)}
+    .eventCard{padding:14px}
+    .eventTitle{font-size:12px; font-weight:900; letter-spacing:1px; color:var(--danger); margin-bottom:8px}
+    .eventName{font-size:22px; font-weight:1000; margin-bottom:5px}
+    .eventDesc{font-size:14px; color:var(--sub); line-height:1.45}
+    .pillRow{display:flex; flex-wrap:wrap; gap:8px; margin-top:12px}
+    .pill{padding:7px 10px; border-radius:999px; background:#10172a; border:1px solid #2f3d62; color:#dce4ff; font-size:12px; font-weight:800}
+    .result{padding:18px; display:none}
+    .result.show{display:block}
+    .result h2{font-size:29px; margin:6px 0 4px; letter-spacing:-1px}
+    .result .big{font-size:60px; line-height:1}
+    .result .desc{font-size:15px; color:var(--sub); line-height:1.5; margin:10px 0 16px}
+    .resultGrid{display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin:12px 0 16px}
+    .resultStat{padding:12px; border-radius:15px; background:#11172a; border:1px solid #32405f; text-align:center}
+    .resultStat strong{display:block; font-size:20px}
+    .resultStat span{font-size:11px; color:var(--sub)}
+    .hidden{display:none !important}
+    .footerNote{padding:0 6px; font-size:12px; color:#8da0c8; text-align:center; line-height:1.4}
+    canvas#shareCanvas{display:none}
+    @media (max-width:380px){
+      h1{font-size:28px}.avatar{font-size:26px}.btn{font-size:13px; padding:13px 8px}.eventName{font-size:20px}
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <section class="card hero" id="heroCard">
+      <div class="eyebrow">AMOOGONA · ONLINE SPACE LAB</div>
+      <h1>온라인 퇴근 지하철 🚇</h1>
+      <p class="sub">빈자리 사수, 지하철 빌런 회피, 내릴 역까지 멘탈 유지하기.<br>현실 고증 120% 퇴근 시뮬레이터.</p>
+    </section>
+
+    <section class="card stats" id="statsCard">
+      <div class="stat">
+        <div class="label">현재 역</div>
+        <div class="value" id="stationText">1 / 5</div>
+      </div>
+      <div class="stat">
+        <div class="label">스트레스</div>
+        <div class="value" id="stressText">0</div>
+        <div class="lineWrap"><div class="bar stress" id="stressBar"></div></div>
+      </div>
+      <div class="stat">
+        <div class="label">인내심</div>
+        <div class="value" id="patienceText">100</div>
+        <div class="lineWrap"><div class="bar patience" id="patienceBar"></div></div>
+      </div>
+    </section>
+
+    <section class="card carWrap" id="playCard">
+      <div class="carHeader">
+        <strong id="sceneTitle">승강장 도착</strong>
+        <span class="badge" id="routeBadge">2호선 · 퇴근 급행</span>
+      </div>
+      <div class="trainCar">
+        <div class="door left"></div><div class="door right"></div>
+        <div class="grabBar"></div>
+        <div class="seats" id="seats"></div>
+      </div>
+      <div class="bubble" id="bubbleText">문이 열렸습니다. 얼른 들어가서 오늘의 생존 자리를 골라보자.</div>
+    </section>
+
+    <section class="card actions" id="seatActions">
+      <button class="btn primary" id="startBtn">탑승 시작</button>
+      <button class="btn warn" id="seatBtn" disabled>빈자리 고르기</button>
+      <button class="btn pink" id="nextBtn" disabled>다음 역으로</button>
+    </section>
+
+    <section class="card eventCard hidden" id="eventCard">
+      <div class="eventTitle">TODAY'S SUBWAY VILLAIN</div>
+      <div class="eventName" id="eventName">쩍벌맨</div>
+      <div class="eventDesc" id="eventDesc">다리를 넓게 벌린 채 양옆 두 좌석의 평화를 앗아갑니다.</div>
+      <div class="pillRow" id="villainPills"></div>
+    </section>
+
+    <section class="card actions hidden" id="villainActions">
+      <button class="btn primary" id="endureBtn">참기</button>
+      <button class="btn warn" id="moveBtn">슬쩍 이동</button>
+      <button class="btn pink" id="glareBtn">눈치 주기</button>
+    </section>
+
+    <section class="card result" id="resultCard">
+      <div class="eyebrow">오늘의 퇴근 결과</div>
+      <div class="big" id="resultEmoji">😇</div>
+      <h2 id="resultTitle">평화주의 좌석헌터</h2>
+      <div class="desc" id="resultDesc">용케도 오늘 무사히 살아남았다.</div>
+      <div class="resultGrid">
+        <div class="resultStat"><strong id="finalStress">0</strong><span>최종 스트레스</span></div>
+        <div class="resultStat"><strong id="finalPatience">100</strong><span>남은 인내심</span></div>
+        <div class="resultStat"><strong id="finalVillains">0</strong><span>조우한 빌런</span></div>
+      </div>
+      <div class="actions" style="padding:0; margin-top:4px;">
+        <button class="btn primary" id="shareBtn">결과 공유</button>
+        <button class="btn warn" id="saveBtn">카드 저장</button>
+        <button class="btn pink" id="restartBtn">다시 퇴근</button>
+      </div>
+    </section>
+
+    <div class="footerNote">MVP 버전: 싱글플레이 · 이후 실제 멀티플레이, 친구 초대, 지하철 채팅, 빌런 도감 확장 가능</div>
+    <canvas id="shareCanvas" width="1080" height="1920"></canvas>
+  </div>
+
+<script>
+const stations = ['강남','선릉','역삼','잠실','집'];
+const seatCount = 8;
+const villains = [
+  {
+    id:'manspreader', name:'쩍벌맨', emoji:'😑',
+    desc:'다리를 넓게 벌린 채 양옆 두 좌석의 평화를 동시에 차지하는 전설의 타입.',
+    tags:['공간 침범','은근 킹받음','현실 고증'],
+    endure:{stress:18, patience:-14, text:'참았지만 무릎이 정신적으로 접혔다.'},
+    move:{stress:8, patience:-4, text:'타이밍 좋게 다른 쪽으로 빠졌다.'},
+    glare:{stress:4, patience:-10, text:'시선 압박 성공. 다리가 2cm 정도는 접혔다.'}
+  },
+  {
+    id:'backpack', name:'백팩 방패러', emoji:'🎒',
+    desc:'문 앞에서 백팩으로 반경 1m를 통제한다. 퇴근길 소형 탱크.',
+    tags:['문막힘','백팩','출구 방해'],
+    endure:{stress:16, patience:-10, text:'가방에 두 번 치였지만 영혼은 지켰다.'},
+    move:{stress:7, patience:-3, text:'기둥 뒤 안전지대로 회피 성공.'},
+    glare:{stress:5, patience:-8, text:'눈빛을 느낀 상대가 가방을 앞으로 멨다. 작은 승리.'}
+  },
+  {
+    id:'phone', name:'통화 빌런', emoji:'📞',
+    desc:'“어어 지금 지하철~”로 시작해 본인의 하루를 객차 전체와 공유한다.',
+    tags:['스피커톤','과몰입 통화','정보 과다'],
+    endure:{stress:15, patience:-12, text:'원치 않게 남의 연애사 결말까지 들었다.'},
+    move:{stress:6, patience:-4, text:'통화 음량이 약한 칸 쪽으로 탈출.'},
+    glare:{stress:8, patience:-8, text:'눈치를 줬지만 볼륨이 1만 줄었다.'}
+  },
+  {
+    id:'leaner', name:'꾸벅 기대러', emoji:'😴',
+    desc:'졸면서 서서히 어깨를 정복한다. 죄는 없지만 매우 버거움.',
+    tags:['졸음','어깨 침범','퇴근 공감'],
+    endure:{stress:13, patience:-9, text:'잠깐 인간 베개가 되었지만 선한 마음으로 버텼다.'},
+    move:{stress:5, patience:-2, text:'살짝 몸을 빼서 충돌 없이 해결.'},
+    glare:{stress:10, patience:-6, text:'놀라 깬 상대와 1초간 어색한 눈맞춤.'}
+  },
+  {
+    id:'foodie', name:'간식 먹방러', emoji:'🥟',
+    desc:'만두인지 핫도그인지 알 수 없는 강한 향으로 객차를 채운다.',
+    tags:['향기 공격','먹방','배고픔 유발'],
+    endure:{stress:11, patience:-6, text:'화나기보다 배가 고파졌다. 집 가서 라면 각.'},
+    move:{stress:6, patience:-2, text:'향기 풍향을 피해 이동 성공.'},
+    glare:{stress:12, patience:-8, text:'쳐다봤더니 더 맛있게 먹는 기적을 봤다.'}
+  },
+  {
+    id:'doorkeeper', name:'문앞 수문장', emoji:'🚪',
+    desc:'내릴 사람보다 먼저 문 앞을 선점해 하차 동선을 붕괴시킨다.',
+    tags:['하차 방해','문앞 고정','퇴근 혈압'],
+    endure:{stress:17, patience:-11, text:'문 열리자마자 미안합니다 연타하면서 겨우 탈출했다.'},
+    move:{stress:7, patience:-5, text:'미리 출구 쪽으로 포지셔닝을 바꿨다.'},
+    glare:{stress:6, patience:-7, text:'비켜주세요 한마디로 길을 확보했다.'}
+  }
+];
+
+let state = {};
+const els = {
+  stationText: document.getElementById('stationText'),
+  stressText: document.getElementById('stressText'),
+  patienceText: document.getElementById('patienceText'),
+  stressBar: document.getElementById('stressBar'),
+  patienceBar: document.getElementById('patienceBar'),
+  seats: document.getElementById('seats'),
+  bubbleText: document.getElementById('bubbleText'),
+  sceneTitle: document.getElementById('sceneTitle'),
+  routeBadge: document.getElementById('routeBadge'),
+  startBtn: document.getElementById('startBtn'),
+  seatBtn: document.getElementById('seatBtn'),
+  nextBtn: document.getElementById('nextBtn'),
+  eventCard: document.getElementById('eventCard'),
+  villainActions: document.getElementById('villainActions'),
+  eventName: document.getElementById('eventName'),
+  eventDesc: document.getElementById('eventDesc'),
+  villainPills: document.getElementById('villainPills'),
+  endureBtn: document.getElementById('endureBtn'),
+  moveBtn: document.getElementById('moveBtn'),
+  glareBtn: document.getElementById('glareBtn'),
+  resultCard: document.getElementById('resultCard'),
+  resultEmoji: document.getElementById('resultEmoji'),
+  resultTitle: document.getElementById('resultTitle'),
+  resultDesc: document.getElementById('resultDesc'),
+  finalStress: document.getElementById('finalStress'),
+  finalPatience: document.getElementById('finalPatience'),
+  finalVillains: document.getElementById('finalVillains'),
+  shareBtn: document.getElementById('shareBtn'),
+  saveBtn: document.getElementById('saveBtn'),
+  restartBtn: document.getElementById('restartBtn'),
+  shareCanvas: document.getElementById('shareCanvas'),
+};
+
+function shuffle(arr){ return [...arr].sort(()=>Math.random()-0.5); }
+function clamp(n,min,max){ return Math.max(min, Math.min(max,n)); }
+
+function resetGame(){
+  state = {
+    stationIndex: 0,
+    stress: 0,
+    patience: 100,
+    seated: false,
+    seatIndex: null,
+    selectedVillain: null,
+    encountered: [],
+    phase: 'intro',
+    seats: Array.from({length:seatCount}, (_,i)=>({type:'empty', label:'빈자리', emoji:'🪑'}))
+  };
+  els.resultCard.classList.remove('show');
+  els.resultCard.style.display = 'none';
+  els.eventCard.classList.add('hidden');
+  els.villainActions.classList.add('hidden');
+  document.getElementById('seatActions').classList.remove('hidden');
+  document.getElementById('playCard').classList.remove('hidden');
+  els.startBtn.disabled = false;
+  els.seatBtn.disabled = true;
+  els.nextBtn.disabled = true;
+  els.sceneTitle.textContent = '승강장 도착';
+  els.routeBadge.textContent = '2호선 · 퇴근 급행';
+  els.bubbleText.textContent = '문이 열렸습니다. 얼른 들어가서 오늘의 생존 자리를 골라보자.';
+  renderSeats();
+  updateStats();
+}
+
+function updateStats(){
+  els.stationText.textContent = `${Math.min(state.stationIndex+1, stations.length)} / ${stations.length}`;
+  els.stressText.textContent = state.stress;
+  els.patienceText.textContent = state.patience;
+  els.stressBar.style.width = `${clamp(state.stress,0,100)}%`;
+  els.patienceBar.style.width = `${clamp(state.patience,0,100)}%`;
+}
+
+function createBasePassengers(){
+  const friendPool = ['묵묵직장인','하품러','폰보는사람','이어폰맨','책읽는사람'];
+  const occupied = shuffle([...Array(seatCount).keys()]).slice(0, 4 + Math.floor(Math.random()*2));
+  state.seats = Array.from({length:seatCount}, (_,i)=>({type:'empty', label:'빈자리', emoji:'🪑'}));
+  occupied.forEach((idx,n)=>{
+    state.seats[idx] = {type:'npc', label:friendPool[n % friendPool.length], emoji:['🧑‍💼','😶','📱','🎧','📘'][n % 5]};
+  });
+}
+
+function boardTrain(){
+  createBasePassengers();
+  state.phase = 'seat';
+  state.seated = false;
+  state.seatIndex = null;
+  els.sceneTitle.textContent = `${stations[state.stationIndex]}역 탑승`;
+  els.bubbleText.textContent = '빈자리를 재빨리 고르자. 너무 늦으면 다 차버린다!';
+  els.startBtn.disabled = true;
+  els.seatBtn.disabled = false;
+  els.nextBtn.disabled = true;
+  renderSeats();
+}
+
+function pickSeat(){
+  const empties = state.seats.map((s,i)=>s.type==='empty'?i:null).filter(v=>v!==null);
+  if(!empties.length){
+    state.stress += 10;
+    state.patience -= 8;
+    state.seated = false;
+    state.seatIndex = null;
+    els.bubbleText.textContent = '앗… 빈자리가 순식간에 사라졌다. 오늘은 서서 간다.';
+  } else {
+    const win = Math.random() > 0.18;
+    if(win){
+      const picked = empties[Math.floor(Math.random()*empties.length)];
+      state.seats[picked] = {type:'you', label:'나', emoji:'🙂'};
+      state.seated = true; state.seatIndex = picked;
+      els.bubbleText.textContent = '오예! 빈자리 확보 성공. 하지만 방심은 금물…';
+    } else {
+      const stolen = empties[Math.floor(Math.random()*empties.length)];
+      state.seats[stolen] = {type:'npc', label:'칼좌석러', emoji:'🏃'};
+      state.seated = false; state.seatIndex = null;
+      state.stress += 8; state.patience -= 6;
+      els.bubbleText.textContent = '눈앞에서 자리를 뺏겼다. 저 민첩함 뭐야?';
+    }
+  }
+  spawnVillain();
+  els.seatBtn.disabled = true;
+  renderSeats();
+  updateStats();
+}
+
+function spawnVillain(){
+  const used = state.encountered.map(v=>v.id);
+  const options = villains.filter(v=>!used.includes(v.id));
+  const v = (options.length ? options : villains)[Math.floor(Math.random()*(options.length?options.length:villains.length))];
+  state.selectedVillain = v;
+  state.encountered.push(v);
+  let spotOptions = state.seats.map((s,i)=>s.type!=='you'?i:null).filter(v=>v!==null);
+  if(!spotOptions.length) spotOptions=[0];
+  const villainSeat = spotOptions[Math.floor(Math.random()*spotOptions.length)];
+  state.seats[villainSeat] = {type:'villain', label:v.name, emoji:v.emoji};
+  if(!state.seated){
+    const standSpot = state.seats.findIndex(s=>s.type==='empty');
+    if(standSpot>=0){ state.seats[standSpot] = {type:'standing', label:'나(입석)', emoji:'🧍'}; }
+  }
+  state.phase = 'villain';
+  els.eventCard.classList.remove('hidden');
+  els.villainActions.classList.remove('hidden');
+  els.eventName.textContent = `${v.emoji} ${v.name}`;
+  els.eventDesc.textContent = v.desc;
+  els.villainPills.innerHTML = v.tags.map(tag=>`<span class="pill">${tag}</span>`).join('');
+  els.bubbleText.textContent = `앗, ${v.name} 출현! 오늘도 쉽지 않다… 어떻게 대응할까?`;
+}
+
+function handleChoice(type){
+  const v = state.selectedVillain;
+  if(!v) return;
+  const outcome = v[type];
+  state.stress = clamp(state.stress + outcome.stress, 0, 100);
+  state.patience = clamp(state.patience + outcome.patience, 0, 100);
+  els.bubbleText.textContent = outcome.text;
+  state.phase = 'post';
+  els.villainActions.classList.add('hidden');
+  els.nextBtn.disabled = false;
+  updateStats();
+}
+
+function nextStation(){
+  state.stationIndex++;
+  if(state.stationIndex >= stations.length){
+    finishGame();
+    return;
+  }
+  els.eventCard.classList.add('hidden');
+  els.villainActions.classList.add('hidden');
+  els.nextBtn.disabled = true;
+  els.startBtn.disabled = true;
+  els.seatBtn.disabled = false;
+  state.selectedVillain = null;
+  state.phase = 'seat';
+  createBasePassengers();
+  els.sceneTitle.textContent = `${stations[state.stationIndex]}역 도착`;
+  els.bubbleText.textContent = state.stationIndex === stations.length-1
+    ? '마지막 구간이다. 집까지 멘탈만 붙잡자.'
+    : '다시 문이 열렸다. 다음 구간 생존 자리를 골라보자.';
+  renderSeats();
+  updateStats();
+}
+
+function getResult(){
+  const s = state.stress;
+  const p = state.patience;
+  if(s <= 25 && p >= 70) return {
+    emoji:'😇', title:'평화주의 좌석헌터',
+    desc:'용케도 오늘 무사 퇴근했다. 자리도 잘 잡고 멘탈도 지킨 타입.'
+  };
+  if(s <= 45 && p >= 55) return {
+    emoji:'😎', title:'지옥철 생존고수',
+    desc:'적당히 피하고, 적당히 참으며, 현실적으로 살아남는 현명한 타입.'
+  };
+  if(s <= 70) return {
+    emoji:'😵‍💫', title:'참기의 인간화',
+    desc:'속으로는 백 번 소리쳤지만 겉으로는 조용히 버틴 퇴근러.'
+  };
+  if(p < 35) return {
+    emoji:'🤯', title:'분노 폭발 1초 전',
+    desc:'오늘의 지하철은 너무했다. 침대에 눕는 순간까지 억울할 예정.'
+  };
+  return {
+    emoji:'🫠', title:'멘탈 용해형 퇴근러',
+    desc:'살아는 돌아왔지만 영혼은 아직 2호선 어딘가에 남아있다.'
+  };
+}
+
+function finishGame(){
+  const result = getResult();
+  document.getElementById('playCard').classList.add('hidden');
+  document.getElementById('seatActions').classList.add('hidden');
+  els.eventCard.classList.add('hidden');
+  els.villainActions.classList.add('hidden');
+  els.resultCard.style.display = 'block';
+  els.resultCard.classList.add('show');
+  els.resultEmoji.textContent = result.emoji;
+  els.resultTitle.textContent = result.title;
+  els.resultDesc.textContent = result.desc;
+  els.finalStress.textContent = state.stress;
+  els.finalPatience.textContent = state.patience;
+  els.finalVillains.textContent = state.encountered.length;
+}
+
+function renderSeats(){
+  els.seats.innerHTML = '';
+  state.seats.forEach((seat, idx)=>{
+    const btn = document.createElement('button');
+    btn.className = 'seat';
+    if(seat.type==='empty') btn.classList.add('empty');
+    if(seat.type==='you') btn.classList.add('you');
+    if(seat.type==='villain') btn.classList.add('villain');
+    if(seat.type==='npc') btn.classList.add('friend');
+    btn.innerHTML = `<div class="avatar">${seat.emoji}</div><div class="name">${seat.label}</div><div class="seatMeta">${idx+1}번 좌석</div>`;
+    btn.disabled = true;
+    els.seats.appendChild(btn);
+  });
+}
+
+function buildShareText(){
+  const result = getResult();
+  return `온라인 퇴근 지하철 결과 🚇\n${result.emoji} ${result.title}\n스트레스 ${state.stress} / 인내심 ${state.patience}\n오늘 만난 빌런 ${state.encountered.length}명\n#온라인퇴근지하철 #아무거나실험실`;
+}
+
+async function shareResult(){
+  const text = buildShareText();
+  if (navigator.share) {
+    try { await navigator.share({ title:'온라인 퇴근 지하철', text }); }
+    catch(e){}
+  } else {
+    try {
+      await navigator.clipboard.writeText(text);
+      alert('결과 문구를 복사했어!');
+    } catch(e) {
+      alert(text);
+    }
+  }
+}
+
+function saveCard(){
+  const c = els.shareCanvas;
+  const ctx = c.getContext('2d');
+  const result = getResult();
+  ctx.fillStyle = '#0f1320'; ctx.fillRect(0,0,c.width,c.height);
+  const grad = ctx.createLinearGradient(0,0,0,c.height);
+  grad.addColorStop(0,'#17203a'); grad.addColorStop(1,'#0d1120');
+  ctx.fillStyle = grad; ctx.fillRect(40,40,c.width-80,c.height-80);
+  ctx.strokeStyle = '#36405e'; ctx.lineWidth = 4; ctx.strokeRect(40,40,c.width-80,c.height-80);
+  ctx.fillStyle = '#7cd4ff'; ctx.font = '700 34px sans-serif'; ctx.fillText('AMOOGONA · ONLINE SPACE LAB', 86, 140);
+  ctx.fillStyle = '#fff'; ctx.font = '900 80px sans-serif'; ctx.fillText('온라인 퇴근 지하철', 86, 245);
+  ctx.font = '220px sans-serif'; ctx.fillText(result.emoji, 390, 560);
+  ctx.fillStyle = '#ffcb6b'; ctx.font = '900 64px sans-serif'; ctx.fillText(result.title, 86, 760);
+  ctx.fillStyle = '#cbd5f7'; ctx.font = '500 38px sans-serif'; wrapText(ctx, result.desc, 86, 840, 860, 56);
+
+  drawStatBox(ctx, 86, 980, 258, 180, '스트레스', String(state.stress), '#ff7b8b');
+  drawStatBox(ctx, 380, 980, 258, 180, '인내심', String(state.patience), '#80e0a7');
+  drawStatBox(ctx, 674, 980, 320, 180, '만난 빌런', `${state.encountered.length}명`, '#7cd4ff');
+
+  ctx.fillStyle = '#fff'; ctx.font = '800 46px sans-serif'; ctx.fillText('오늘 만난 빌런', 86, 1270);
+  let x = 86, y = 1330;
+  state.encountered.slice(0,5).forEach((v,i)=>{
+    drawTag(ctx, x, y, `${v.emoji} ${v.name}`);
+    x += ctx.measureText(`${v.emoji} ${v.name}`).width + 88;
+    if(x > 820){ x = 86; y += 84; }
+  });
+
+  ctx.fillStyle = '#8ea4d6'; ctx.font = '600 34px sans-serif';
+  wrapText(ctx, '“오늘도 살아남았다. 근데 멘탈은 한 정거장 전에 두고 내림.”', 86, 1600, 900, 48);
+  ctx.fillStyle = '#7cd4ff'; ctx.font = '700 28px sans-serif';
+  ctx.fillText('#온라인퇴근지하철 #아무거나실험실', 86, 1770);
+
+  const link = document.createElement('a');
+  link.download = 'online-subway-result.png';
+  link.href = c.toDataURL('image/png');
+  link.click();
+}
+
+function drawStatBox(ctx,x,y,w,h,label,value,color){
+  ctx.fillStyle = '#10172a'; roundRect(ctx,x,y,w,h,24,true,false);
+  ctx.strokeStyle = '#33405f'; ctx.lineWidth = 3; roundRect(ctx,x,y,w,h,24,false,true);
+  ctx.fillStyle = color; ctx.font = '700 30px sans-serif'; ctx.fillText(label, x+28, y+50);
+  ctx.fillStyle = '#fff'; ctx.font = '900 74px sans-serif'; ctx.fillText(value, x+28, y+122);
+}
+function drawTag(ctx,x,y,text){
+  ctx.font = '700 26px sans-serif';
+  const w = ctx.measureText(text).width + 42;
+  ctx.fillStyle = '#111a31'; roundRect(ctx,x,y,w,54,27,true,false);
+  ctx.strokeStyle = '#36405e'; ctx.lineWidth = 2; roundRect(ctx,x,y,w,54,27,false,true);
+  ctx.fillStyle = '#eef3ff'; ctx.fillText(text, x+20, y+35);
+}
+function wrapText(ctx, text, x, y, maxWidth, lineHeight){
+  const words = text.split(' '); let line = ''; let cursorY = y;
+  for(let n=0;n<words.length;n++){
+    const testLine = line + words[n] + ' ';
+    const m = ctx.measureText(testLine);
+    if(m.width > maxWidth && n>0){ ctx.fillText(line, x, cursorY); line = words[n] + ' '; cursorY += lineHeight; }
+    else line = testLine;
+  }
+  ctx.fillText(line, x, cursorY);
+}
+function roundRect(ctx, x, y, width, height, radius, fill, stroke) {
+  if (typeof radius === 'number') radius = {tl: radius, tr: radius, br: radius, bl: radius};
+  ctx.beginPath();
+  ctx.moveTo(x + radius.tl, y);
+  ctx.lineTo(x + width - radius.tr, y);
+  ctx.quadraticCurveTo(x + width, y, x + width, y + radius.tr);
+  ctx.lineTo(x + width, y + height - radius.br);
+  ctx.quadraticCurveTo(x + width, y + height, x + width - radius.br, y + height);
+  ctx.lineTo(x + radius.bl, y + height);
+  ctx.quadraticCurveTo(x, y + height, x, y + height - radius.bl);
+  ctx.lineTo(x, y + radius.tl);
+  ctx.quadraticCurveTo(x, y, x + radius.tl, y);
+  ctx.closePath(); if (fill) ctx.fill(); if (stroke) ctx.stroke();
+}
+
+els.startBtn.addEventListener('click', boardTrain);
+els.seatBtn.addEventListener('click', pickSeat);
+els.nextBtn.addEventListener('click', nextStation);
+els.endureBtn.addEventListener('click', ()=>handleChoice('endure'));
+els.moveBtn.addEventListener('click', ()=>handleChoice('move'));
+els.glareBtn.addEventListener('click', ()=>handleChoice('glare'));
+els.shareBtn.addEventListener('click', shareResult);
+els.saveBtn.addEventListener('click', saveCard);
+els.restartBtn.addEventListener('click', ()=>{
+  document.getElementById('playCard').classList.remove('hidden');
+  document.getElementById('seatActions').classList.remove('hidden');
+  resetGame();
+});
+
+resetGame();
+</script>
+</body>
+</html>
