@@ -14,7 +14,7 @@
 cd retire-pipeline
 npm install
 npm run dev     # http://localhost:3000
-npm run build && npm start
+npm run build    # 정적 파일이 out/ 에 생성됨 (어느 경로에 올려도 동작)
 ```
 
 스택: Next.js 14 (App Router) · Tailwind CSS · Lucide React · TypeScript

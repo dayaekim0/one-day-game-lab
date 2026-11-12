@@ -24,6 +24,7 @@ export default function EditableList({
   const [title, setTitle] = useState("");
   const [minutes, setMinutes] = useState(2);
   const [category, setCategory] = useState<Category>("gonggu");
+  const [confirmReset, setConfirmReset] = useState(false);
 
   const submit = (e: FormEvent) => {
     e.preventDefault();
@@ -96,15 +97,36 @@ export default function EditableList({
         </div>
       </form>
 
-      <button
-        type="button"
-        onClick={() => {
-          if (window.confirm("기본 목록으로 되돌릴까요?")) onReset();
-        }}
-        className="flex items-center gap-1 text-xs text-slate-400 hover:text-slate-600"
-      >
-        <RotateCcw size={12} /> 기본 목록으로 되돌리기
-      </button>
+      {confirmReset ? (
+        <div className="flex items-center gap-2 text-xs">
+          <span className="text-slate-500">기본 목록으로 되돌릴까요?</span>
+          <button
+            type="button"
+            onClick={() => {
+              onReset();
+              setConfirmReset(false);
+            }}
+            className="rounded-full bg-slate-900 px-3 py-1 font-semibold text-white"
+          >
+            되돌리기
+          </button>
+          <button
+            type="button"
+            onClick={() => setConfirmReset(false)}
+            className="rounded-full px-3 py-1 font-semibold text-slate-500 ring-1 ring-slate-200"
+          >
+            취소
+          </button>
+        </div>
+      ) : (
+        <button
+          type="button"
+          onClick={() => setConfirmReset(true)}
+          className="flex items-center gap-1 text-xs text-slate-400 hover:text-slate-600"
+        >
+          <RotateCcw size={12} /> 기본 목록으로 되돌리기
+        </button>
+      )}
     </div>
   );
 }
