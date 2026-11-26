@@ -3,3 +3,4 @@ export * from './place';
 export * from './region';
 export * from './review';
 export * from './user';
+export * from './trip';

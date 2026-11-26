@@ -128,13 +128,31 @@
           "provider": "coupang"
         }
       }
-    ]
+    ],
+    "guideIsSample": true
+  },
+  {
+    "id": "otaru",
+    "name": "일본 오타루",
+    "country": "일본",
+    "order": 2,
+    "center": {
+      "lat": 43.1907,
+      "lng": 141.004
+    },
+    "zoom": 12,
+    "summary": null,
+    "highlights": [],
+    "itinerary": [],
+    "clothingGuide": {},
+    "gearRecommendations": [],
+    "guideIsSample": false
   },
   {
     "id": "jeju",
     "name": "제주",
     "country": "대한민국",
-    "order": 2,
+    "order": 3,
     "center": {
       "lat": 33.39,
       "lng": 126.56
@@ -258,6 +276,7 @@
           "provider": "coupang"
         }
       }
-    ]
+    ],
+    "guideIsSample": true
   }
 ]

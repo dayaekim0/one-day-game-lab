@@ -1,3 +1,4 @@
+import type { PlaceFilterContext } from '../filters';
 import type {
   AppUser,
   AuthProvider,
@@ -6,7 +7,10 @@ import type {
   Place,
   PlaceFilter,
   PlaceSubmission,
+  PlaceVisit,
   Region,
+  TripBundle,
+  TripFilter,
   UserReview,
 } from '../types';
 
@@ -15,7 +19,7 @@ import type {
  * 로컬(JSON + localStorage/IndexedDB) 구현과 Supabase 구현이 같은 계약을 따릅니다.
  */
 export interface PlaceRepository {
-  listPlaces(filter?: PlaceFilter): Promise<Place[]>;
+  listPlaces(filter?: PlaceFilter, ctx?: PlaceFilterContext): Promise<Place[]>;
   getPlace(id: string): Promise<Place | null>;
   listRegions(): Promise<Region[]>;
   getRegion(id: string): Promise<Region | null>;
@@ -34,6 +38,14 @@ export interface ReviewRepository {
   subscribe(listener: () => void): () => void;
 }
 
+export interface TripRepository {
+  /** 여행 + 일정·결제·후기·콘텐츠 묶음. 최신 여행 순 */
+  listTripBundles(filter?: TripFilter): Promise<TripBundle[]>;
+  getTripBundle(id: string): Promise<TripBundle | null>;
+  /** 장소별 실제 방문 기록 (아이 개월 수 필터·배지용) */
+  listPlaceVisits(): Promise<Record<string, PlaceVisit[]>>;
+}
+
 export interface AuthService {
   getCurrentUser(): Promise<AppUser | null>;
   signIn(provider: Exclude<AuthProvider, 'anonymous'>): Promise<void>;
@@ -42,6 +54,7 @@ export interface AuthService {
 
 export interface DataSource {
   places: PlaceRepository;
+  trips: TripRepository;
   reviews: ReviewRepository;
   auth: AuthService;
 }

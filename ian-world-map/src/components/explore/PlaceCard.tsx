@@ -1,18 +1,28 @@
 'use client';
 
-import type { Place } from '@/lib/types';
-import { AgeBadges, AmenityIcons, ReviewCountBadge, categoryOf } from './PlaceMeta';
+import type { Place, PlaceVisit } from '@/lib/types';
+import {
+  AgeBadges,
+  AmenityIcons,
+  ReviewCountBadge,
+  SampleBadge,
+  VisitBadge,
+  categoryOf,
+  descriptionOf,
+  thumbOf,
+} from './PlaceMeta';
 
 interface Props {
   place: Place;
   reviewCount: number;
+  visits?: PlaceVisit[];
   highlighted: boolean;
   selected: boolean;
   onHover: (id: string | null) => void;
   onClick: (id: string) => void;
 }
 
-export function PlaceCard({ place, reviewCount, highlighted, selected, onHover, onClick }: Props) {
+export function PlaceCard({ place, reviewCount, visits, highlighted, selected, onHover, onClick }: Props) {
   const cat = categoryOf(place);
   return (
     <article
@@ -28,12 +38,12 @@ export function PlaceCard({ place, reviewCount, highlighted, selected, onHover, 
         onClick={() => onClick(place.id)}
         onFocus={() => onHover(place.id)}
         onBlur={() => onHover(null)}
-        className="block w-full text-left focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ink rounded-xl"
+        className="block w-full rounded-xl text-left focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ink"
       >
         <div className="relative aspect-[4/3] overflow-hidden rounded-xl bg-gray-100">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src={place.thumbnail}
+            src={thumbOf(place)}
             alt=""
             loading="lazy"
             className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.03]"
@@ -41,9 +51,17 @@ export function PlaceCard({ place, reviewCount, highlighted, selected, onHover, 
           <span className="absolute left-2.5 top-2.5 rounded-full bg-white/95 px-2.5 py-1 text-xs font-bold shadow-sm">
             {cat.emoji} {cat.label}
           </span>
-          {place.affiliateLink && (
-            <span className="absolute right-2.5 top-2.5 rounded-full bg-black/60 px-2 py-0.5 text-[11px] font-semibold text-white">
-              예약 가능
+          <span className="absolute right-2.5 top-2.5 flex gap-1">
+            {place.isSample && <SampleBadge />}
+            {place.affiliateLink && (
+              <span className="rounded-full bg-black/60 px-2 py-0.5 text-[11px] font-semibold text-white">
+                예약 가능
+              </span>
+            )}
+          </span>
+          {!place.location && (
+            <span className="absolute bottom-2.5 left-2.5 rounded-full bg-white/95 px-2 py-0.5 text-[11px] font-semibold text-muted">
+              📍 지도 위치 미입력
             </span>
           )}
         </div>
@@ -52,9 +70,14 @@ export function PlaceCard({ place, reviewCount, highlighted, selected, onHover, 
             <h3 className="line-clamp-1 font-bold">{place.name}</h3>
             <ReviewCountBadge count={reviewCount} />
           </div>
-          <p className="line-clamp-2 text-sm text-muted">{place.shortDescription}</p>
+          <p className={`line-clamp-2 text-sm ${place.shortDescription ? 'text-muted' : 'text-gray-400'}`}>
+            {descriptionOf(place)}
+          </p>
           <div className="flex items-center justify-between gap-2 pt-0.5">
-            <AgeBadges place={place} />
+            <div className="flex flex-wrap gap-1">
+              <VisitBadge visits={visits} />
+              <AgeBadges place={place} />
+            </div>
             <AmenityIcons place={place} />
           </div>
         </div>

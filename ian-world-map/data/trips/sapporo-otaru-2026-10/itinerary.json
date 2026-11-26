@@ -1,0 +1,159 @@
+[
+  {
+    "tripId": "sapporo-otaru-2026-10",
+    "day": 1,
+    "date": "2026-10-05",
+    "overnightRegionId": "otaru",
+    "items": [
+      {
+        "order": 1,
+        "kind": "flight",
+        "placeId": "new-chitose-airport",
+        "title": "신치토세공항",
+        "time": null,
+        "stayMinutes": null,
+        "note": null
+      },
+      {
+        "order": 2,
+        "kind": "lodging",
+        "placeId": "otaru-kourakuen-ryokan",
+        "title": "오타루 코라쿠엔 료칸",
+        "time": null,
+        "stayMinutes": null,
+        "note": null
+      }
+    ]
+  },
+  {
+    "tripId": "sapporo-otaru-2026-10",
+    "day": 2,
+    "date": "2026-10-06",
+    "overnightRegionId": "otaru",
+    "items": [
+      {
+        "order": 1,
+        "kind": "place",
+        "placeId": "otaru-aquarium",
+        "title": "오타루 수족관",
+        "time": null,
+        "stayMinutes": null,
+        "note": null
+      },
+      {
+        "order": 2,
+        "kind": "meal",
+        "placeId": "otaru-fuji-sushi",
+        "title": "후지스시",
+        "time": null,
+        "stayMinutes": null,
+        "note": null
+      },
+      {
+        "order": 3,
+        "kind": "place",
+        "placeId": "otaru-orgel-do",
+        "title": "오르골당",
+        "time": null,
+        "stayMinutes": null,
+        "note": null
+      }
+    ]
+  },
+  {
+    "tripId": "sapporo-otaru-2026-10",
+    "day": 3,
+    "date": "2026-10-07",
+    "overnightRegionId": "sapporo",
+    "items": [
+      {
+        "order": 1,
+        "kind": "lodging",
+        "placeId": "hotel-emion-sapporo",
+        "title": "호텔 에미온 삿포로",
+        "time": null,
+        "stayMinutes": null,
+        "note": null
+      },
+      {
+        "order": 2,
+        "kind": "place",
+        "placeId": "hokkaido-university",
+        "title": "홋카이도대학교",
+        "time": null,
+        "stayMinutes": null,
+        "note": null
+      }
+    ]
+  },
+  {
+    "tripId": "sapporo-otaru-2026-10",
+    "day": 4,
+    "date": "2026-10-08",
+    "overnightRegionId": "sapporo",
+    "items": [
+      {
+        "order": 1,
+        "kind": "place",
+        "placeId": "sapporo-odori-park",
+        "title": "오도리공원",
+        "time": null,
+        "stayMinutes": null,
+        "note": null
+      },
+      {
+        "order": 2,
+        "kind": "meal",
+        "placeId": null,
+        "title": "수프카레",
+        "time": null,
+        "stayMinutes": null,
+        "note": null
+      },
+      {
+        "order": 3,
+        "kind": "shopping",
+        "placeId": null,
+        "title": "쇼핑",
+        "time": null,
+        "stayMinutes": null,
+        "note": null
+      },
+      {
+        "order": 4,
+        "kind": "meal",
+        "placeId": null,
+        "title": "징기스칸",
+        "time": null,
+        "stayMinutes": null,
+        "note": null
+      }
+    ]
+  },
+  {
+    "tripId": "sapporo-otaru-2026-10",
+    "day": 5,
+    "date": "2026-10-09",
+    "overnightRegionId": null,
+    "items": [
+      {
+        "order": 1,
+        "kind": "flight",
+        "placeId": "new-chitose-airport",
+        "title": "신치토세공항",
+        "time": null,
+        "stayMinutes": null,
+        "note": null
+      },
+      {
+        "order": 2,
+        "kind": "transport",
+        "placeId": null,
+        "title": "귀국",
+        "time": null,
+        "stayMinutes": null,
+        "note": null
+      }
+    ]
+  }
+]

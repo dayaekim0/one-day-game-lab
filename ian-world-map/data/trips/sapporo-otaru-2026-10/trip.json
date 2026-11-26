@@ -1,0 +1,43 @@
+{
+  "id": "sapporo-otaru-2026-10",
+  "title": "삿포로·오타루 4박 5일",
+  "country": "일본",
+  "regionIds": [
+    "otaru",
+    "sapporo"
+  ],
+  "startDate": "2026-10-05",
+  "endDate": "2026-10-09",
+  "nights": 4,
+  "days": 5,
+  "party": {
+    "adults": 2,
+    "children": [
+      {
+        "ageMonths": 28,
+        "label": null
+      }
+    ]
+  },
+  "stays": [
+    {
+      "regionId": "otaru",
+      "nights": 2,
+      "placeId": null
+    },
+    {
+      "regionId": "sapporo",
+      "nights": 2,
+      "placeId": null
+    }
+  ],
+  "currency": "KRW",
+  "totalPaid": 5626183,
+  "status": "completed",
+  "summary": null,
+  "coverImage": null,
+  "sourceUrl": "https://sapporo-otaru-2026-travel.jjinddoo.chatgpt.site/",
+  "isSample": false,
+  "createdAt": "2026-11-26T00:00:00Z",
+  "updatedAt": "2026-11-26T00:00:00Z"
+}

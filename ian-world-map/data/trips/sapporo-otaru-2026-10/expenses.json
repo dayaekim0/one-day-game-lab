@@ -1,0 +1,80 @@
+[
+  {
+    "id": "sapporo-otaru-2026-10-actual-lodging",
+    "tripId": "sapporo-otaru-2026-10",
+    "kind": "actual",
+    "category": "lodging",
+    "label": "숙박",
+    "amount": 1998023,
+    "currency": "KRW",
+    "granularity": "category-total",
+    "date": null,
+    "placeId": null,
+    "note": null
+  },
+  {
+    "id": "sapporo-otaru-2026-10-actual-flight",
+    "tripId": "sapporo-otaru-2026-10",
+    "kind": "actual",
+    "category": "flight",
+    "label": "항공",
+    "amount": 1459700,
+    "currency": "KRW",
+    "granularity": "category-total",
+    "date": null,
+    "placeId": null,
+    "note": null
+  },
+  {
+    "id": "sapporo-otaru-2026-10-actual-shopping",
+    "tripId": "sapporo-otaru-2026-10",
+    "kind": "actual",
+    "category": "shopping",
+    "label": "쇼핑 및 기념품",
+    "amount": 773524,
+    "currency": "KRW",
+    "granularity": "category-total",
+    "date": null,
+    "placeId": null,
+    "note": null
+  },
+  {
+    "id": "sapporo-otaru-2026-10-actual-food",
+    "tripId": "sapporo-otaru-2026-10",
+    "kind": "actual",
+    "category": "food",
+    "label": "식사 및 카페",
+    "amount": 475156,
+    "currency": "KRW",
+    "granularity": "category-total",
+    "date": null,
+    "placeId": null,
+    "note": null
+  },
+  {
+    "id": "sapporo-otaru-2026-10-actual-transport",
+    "tripId": "sapporo-otaru-2026-10",
+    "kind": "actual",
+    "category": "transport",
+    "label": "교통",
+    "amount": 405010,
+    "currency": "KRW",
+    "granularity": "category-total",
+    "date": null,
+    "placeId": null,
+    "note": null
+  },
+  {
+    "id": "sapporo-otaru-2026-10-actual-etc",
+    "tripId": "sapporo-otaru-2026-10",
+    "kind": "actual",
+    "category": "etc",
+    "label": "기타",
+    "amount": 514770,
+    "currency": "KRW",
+    "granularity": "category-total",
+    "date": null,
+    "placeId": null,
+    "note": null
+  }
+]

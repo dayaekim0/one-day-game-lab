@@ -2,12 +2,21 @@
 
 import { useEffect, useRef } from 'react';
 import type { SelectSource } from '@/store/exploreStore';
-import type { Place } from '@/lib/types';
-import { AgeBadges, ReviewCountBadge, categoryOf } from './PlaceMeta';
+import type { Place, PlaceVisit } from '@/lib/types';
+import {
+  AgeBadges,
+  ReviewCountBadge,
+  SampleBadge,
+  VisitBadge,
+  categoryOf,
+  descriptionOf,
+  thumbOf,
+} from './PlaceMeta';
 
 interface Props {
   places: Place[];
   reviewCounts: Record<string, number>;
+  visits: Record<string, PlaceVisit[]>;
   selectedId: string | null;
   selectSource: SelectSource | null;
   onSelect: (id: string) => void;
@@ -18,6 +27,7 @@ interface Props {
 export function MobileCarousel({
   places,
   reviewCounts,
+  visits,
   selectedId,
   selectSource,
   onSelect,
@@ -83,15 +93,20 @@ export function MobileCarousel({
             }`}
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={p.thumbnail} alt="" className="h-24 w-24 shrink-0 rounded-xl object-cover" />
+            <img src={thumbOf(p)} alt="" className="h-24 w-24 shrink-0 rounded-xl object-cover" />
             <div className="min-w-0 flex-1 space-y-1">
-              <p className="text-[11px] font-semibold text-muted">
+              <p className="flex items-center gap-1 text-[11px] font-semibold text-muted">
                 {cat.emoji} {cat.label}
+                {p.isSample && <SampleBadge className="ml-auto" />}
+                {!p.location && <span className="ml-auto">📍 위치 미입력</span>}
               </p>
               <h3 className="line-clamp-1 font-bold">{p.name}</h3>
-              <p className="line-clamp-2 text-xs text-muted">{p.shortDescription}</p>
+              <p className="line-clamp-2 text-xs text-muted">{descriptionOf(p)}</p>
               <div className="flex items-center justify-between gap-1">
-                <AgeBadges place={p} max={2} />
+                <div className="flex flex-wrap gap-1">
+                  <VisitBadge visits={visits[p.id]} />
+                  <AgeBadges place={p} max={2} />
+                </div>
                 <ReviewCountBadge count={reviewCounts[p.id] ?? 0} />
               </div>
             </div>

@@ -1,80 +1,284 @@
 [
   {
+    "id": "new-chitose-airport",
+    "regionId": "sapporo",
+    "name": "신치토세공항",
+    "nameLocal": "新千歳空港",
+    "category": "transport",
+    "placeType": "airport",
+    "location": {
+      "lat": 42.7875,
+      "lng": 141.681,
+      "address": null,
+      "precision": "approximate"
+    },
+    "thumbnail": null,
+    "shortDescription": null,
+    "ageRanges": [],
+    "seasons": [],
+    "amenities": {
+      "highChair": null,
+      "strollerAccess": null,
+      "diaperStation": null,
+      "nursingRoom": null,
+      "babyMenu": null
+    },
+    "childFriendliness": {
+      "stroller": null,
+      "meal": null,
+      "note": null
+    },
+    "tags": [],
+    "editorReview": null,
+    "affiliateLink": null,
+    "priceLevel": null,
+    "isSample": false,
+    "createdAt": "2026-11-26T00:00:00Z",
+    "updatedAt": "2026-11-26T00:00:00Z"
+  },
+  {
+    "id": "otaru-kourakuen-ryokan",
+    "regionId": "otaru",
+    "name": "오타루 코라쿠엔 료칸",
+    "nameLocal": null,
+    "category": "stay",
+    "placeType": "ryokan",
+    "location": null,
+    "thumbnail": null,
+    "shortDescription": null,
+    "ageRanges": [],
+    "seasons": [],
+    "amenities": {
+      "highChair": null,
+      "strollerAccess": null,
+      "diaperStation": null,
+      "nursingRoom": null,
+      "babyMenu": null
+    },
+    "childFriendliness": {
+      "stroller": null,
+      "meal": null,
+      "note": null
+    },
+    "tags": [],
+    "editorReview": null,
+    "affiliateLink": null,
+    "priceLevel": null,
+    "isSample": false,
+    "createdAt": "2026-11-26T00:00:00Z",
+    "updatedAt": "2026-11-26T00:00:00Z"
+  },
+  {
+    "id": "otaru-aquarium",
+    "regionId": "otaru",
+    "name": "오타루 수족관",
+    "nameLocal": "おたる水族館",
+    "category": "activity",
+    "placeType": "aquarium",
+    "location": {
+      "lat": 43.2337,
+      "lng": 141.0103,
+      "address": null,
+      "precision": "approximate"
+    },
+    "thumbnail": null,
+    "shortDescription": null,
+    "ageRanges": [],
+    "seasons": [],
+    "amenities": {
+      "highChair": null,
+      "strollerAccess": null,
+      "diaperStation": null,
+      "nursingRoom": null,
+      "babyMenu": null
+    },
+    "childFriendliness": {
+      "stroller": null,
+      "meal": null,
+      "note": null
+    },
+    "tags": [],
+    "editorReview": null,
+    "affiliateLink": null,
+    "priceLevel": null,
+    "isSample": false,
+    "createdAt": "2026-11-26T00:00:00Z",
+    "updatedAt": "2026-11-26T00:00:00Z"
+  },
+  {
+    "id": "otaru-fuji-sushi",
+    "regionId": "otaru",
+    "name": "후지스시",
+    "nameLocal": null,
+    "category": "restaurant",
+    "placeType": "restaurant",
+    "location": null,
+    "thumbnail": null,
+    "shortDescription": null,
+    "ageRanges": [],
+    "seasons": [],
+    "amenities": {
+      "highChair": null,
+      "strollerAccess": null,
+      "diaperStation": null,
+      "nursingRoom": null,
+      "babyMenu": null
+    },
+    "childFriendliness": {
+      "stroller": null,
+      "meal": null,
+      "note": null
+    },
+    "tags": [],
+    "editorReview": null,
+    "affiliateLink": null,
+    "priceLevel": null,
+    "isSample": false,
+    "createdAt": "2026-11-26T00:00:00Z",
+    "updatedAt": "2026-11-26T00:00:00Z"
+  },
+  {
+    "id": "otaru-orgel-do",
+    "regionId": "otaru",
+    "name": "오르골당",
+    "nameLocal": "小樽オルゴール堂",
+    "category": "activity",
+    "placeType": "shop",
+    "location": {
+      "lat": 43.1944,
+      "lng": 141.0062,
+      "address": null,
+      "precision": "approximate"
+    },
+    "thumbnail": null,
+    "shortDescription": null,
+    "ageRanges": [],
+    "seasons": [],
+    "amenities": {
+      "highChair": null,
+      "strollerAccess": null,
+      "diaperStation": null,
+      "nursingRoom": null,
+      "babyMenu": null
+    },
+    "childFriendliness": {
+      "stroller": null,
+      "meal": null,
+      "note": null
+    },
+    "tags": [],
+    "editorReview": null,
+    "affiliateLink": null,
+    "priceLevel": null,
+    "isSample": false,
+    "createdAt": "2026-11-26T00:00:00Z",
+    "updatedAt": "2026-11-26T00:00:00Z"
+  },
+  {
+    "id": "hotel-emion-sapporo",
+    "regionId": "sapporo",
+    "name": "호텔 에미온 삿포로",
+    "nameLocal": null,
+    "category": "stay",
+    "placeType": "hotel",
+    "location": null,
+    "thumbnail": null,
+    "shortDescription": null,
+    "ageRanges": [],
+    "seasons": [],
+    "amenities": {
+      "highChair": null,
+      "strollerAccess": null,
+      "diaperStation": null,
+      "nursingRoom": null,
+      "babyMenu": null
+    },
+    "childFriendliness": {
+      "stroller": null,
+      "meal": null,
+      "note": null
+    },
+    "tags": [],
+    "editorReview": null,
+    "affiliateLink": null,
+    "priceLevel": null,
+    "isSample": false,
+    "createdAt": "2026-11-26T00:00:00Z",
+    "updatedAt": "2026-11-26T00:00:00Z"
+  },
+  {
+    "id": "hokkaido-university",
+    "regionId": "sapporo",
+    "name": "홋카이도대학교",
+    "nameLocal": "北海道大学",
+    "category": "activity",
+    "placeType": "campus",
+    "location": {
+      "lat": 43.0757,
+      "lng": 141.3413,
+      "address": null,
+      "precision": "approximate"
+    },
+    "thumbnail": null,
+    "shortDescription": null,
+    "ageRanges": [],
+    "seasons": [],
+    "amenities": {
+      "highChair": null,
+      "strollerAccess": null,
+      "diaperStation": null,
+      "nursingRoom": null,
+      "babyMenu": null
+    },
+    "childFriendliness": {
+      "stroller": null,
+      "meal": null,
+      "note": null
+    },
+    "tags": [],
+    "editorReview": null,
+    "affiliateLink": null,
+    "priceLevel": null,
+    "isSample": false,
+    "createdAt": "2026-11-26T00:00:00Z",
+    "updatedAt": "2026-11-26T00:00:00Z"
+  },
+  {
     "id": "sapporo-odori-park",
     "regionId": "sapporo",
-    "name": "오도리 공원",
+    "name": "오도리공원",
     "nameLocal": "大通公園",
     "category": "activity",
+    "placeType": "park",
     "location": {
       "lat": 43.0601,
       "lng": 141.3485,
-      "address": "北海道札幌市中央区大通西1〜12丁目"
+      "address": null,
+      "precision": "approximate"
     },
-    "thumbnail": "/images/placeholders/activity.svg",
-    "shortDescription": "잔디밭에서 뛰놀기 좋은 도심 공원, 겨울엔 눈축제",
-    "ageRanges": [
-      "6-12",
-      "13-24",
-      "24+"
-    ],
-    "seasons": [
-      "spring",
-      "summer",
-      "winter"
-    ],
+    "thumbnail": null,
+    "shortDescription": null,
+    "ageRanges": [],
+    "seasons": [],
     "amenities": {
-      "highChair": false,
-      "strollerAccess": true,
-      "diaperStation": true,
-      "nursingRoom": false,
-      "babyMenu": false
+      "highChair": null,
+      "strollerAccess": null,
+      "diaperStation": null,
+      "nursingRoom": null,
+      "babyMenu": null
     },
-    "tags": [
-      "무료",
-      "도심",
-      "눈축제"
-    ],
-    "editorReview": {
-      "author": "이안이 엄마",
-      "visitedAt": "2025-02",
-      "babyAgeMonthsAtVisit": 18,
-      "summary": "평지라 유모차로 끝에서 끝까지 걷기 편했어요. 눈축제 기간엔 사람이 많아서 오전 일찍 가는 걸 추천해요.",
-      "photos": [
-        {
-          "id": "sapporo-odori-park-1",
-          "url": "/images/placeholders/exterior.svg",
-          "kind": "exterior",
-          "caption": "눈축제 기간의 오도리 공원"
-        },
-        {
-          "id": "sapporo-odori-park-2",
-          "url": "/images/placeholders/activity.svg",
-          "kind": "activity",
-          "caption": "작은 눈썰매 코스"
-        },
-        {
-          "id": "sapporo-odori-park-3",
-          "url": "/images/placeholders/facility.svg",
-          "kind": "facility",
-          "caption": "공원 근처 공중화장실"
-        }
-      ],
-      "activityPoints": [
-        "눈 조각 구경",
-        "작은 눈썰매 체험",
-        "여름엔 분수 물놀이"
-      ],
-      "strollerTips": "눈축제 기간엔 통로가 미끄러워 유모차 바퀴에 눈이 끼어요. 아기띠를 함께 챙기세요.",
-      "links": [
-        {
-          "type": "blog",
-          "url": "https://example.com/blog/sapporo-odori-park",
-          "title": "이안이와 다녀온 기록 (예시 링크)"
-        }
-      ]
+    "childFriendliness": {
+      "stroller": null,
+      "meal": null,
+      "note": null
     },
-    "createdAt": "2025-03-01T00:00:00Z",
-    "updatedAt": "2025-03-01T00:00:00Z"
+    "tags": [],
+    "editorReview": null,
+    "affiliateLink": null,
+    "priceLevel": null,
+    "isSample": false,
+    "createdAt": "2026-11-26T00:00:00Z",
+    "updatedAt": "2026-11-26T00:00:00Z"
   },
   {
     "id": "sapporo-maruyama-zoo",
@@ -82,10 +286,12 @@
     "name": "마루야마 동물원",
     "nameLocal": "円山動物園",
     "category": "activity",
+    "placeType": "zoo",
     "location": {
       "lat": 43.0533,
       "lng": 141.3065,
-      "address": "北海道札幌市中央区宮ヶ丘3-1"
+      "address": "北海道札幌市中央区宮ヶ丘3-1",
+      "precision": "approximate"
     },
     "thumbnail": "/images/placeholders/activity.svg",
     "shortDescription": "실내 관람동이 많아 추운 날에도 OK, 북극곰이 인기",
@@ -106,6 +312,11 @@
       "diaperStation": true,
       "nursingRoom": true,
       "babyMenu": false
+    },
+    "childFriendliness": {
+      "stroller": null,
+      "meal": null,
+      "note": null
     },
     "tags": [
       "실내관람",
@@ -151,6 +362,7 @@
         }
       ]
     },
+    "isSample": true,
     "createdAt": "2025-03-01T00:00:00Z",
     "updatedAt": "2025-03-01T00:00:00Z"
   },
@@ -160,10 +372,12 @@
     "name": "시로이 코이비토 파크",
     "nameLocal": "白い恋人パーク",
     "category": "activity",
+    "placeType": "theme-park",
     "location": {
       "lat": 43.0889,
       "lng": 141.2716,
-      "address": "北海道札幌市西区宮の沢2条2丁目11-36"
+      "address": "北海道札幌市西区宮の沢2条2丁目11-36",
+      "precision": "approximate"
     },
     "thumbnail": "/images/placeholders/activity.svg",
     "shortDescription": "과자 공장 견학 + 예쁜 정원, 실내 위주라 겨울에 좋아요",
@@ -183,6 +397,11 @@
       "diaperStation": true,
       "nursingRoom": false,
       "babyMenu": false
+    },
+    "childFriendliness": {
+      "stroller": null,
+      "meal": null,
+      "note": null
     },
     "tags": [
       "실내",
@@ -230,6 +449,7 @@
         }
       ]
     },
+    "isSample": true,
     "createdAt": "2025-03-01T00:00:00Z",
     "updatedAt": "2025-03-01T00:00:00Z"
   },
@@ -239,10 +459,12 @@
     "name": "삿포로 팩토리",
     "nameLocal": "サッポロファクトリー",
     "category": "activity",
+    "placeType": "mall",
     "location": {
       "lat": 43.0656,
       "lng": 141.3627,
-      "address": "北海道札幌市中央区北2条東4丁目"
+      "address": "北海道札幌市中央区北2条東4丁目",
+      "precision": "approximate"
     },
     "thumbnail": "/images/placeholders/activity.svg",
     "shortDescription": "날씨 나쁜 날 피난처, 실내 키즈 놀이공간",
@@ -263,6 +485,11 @@
       "diaperStation": true,
       "nursingRoom": true,
       "babyMenu": true
+    },
+    "childFriendliness": {
+      "stroller": null,
+      "meal": null,
+      "note": null
     },
     "tags": [
       "쇼핑몰",
@@ -311,6 +538,7 @@
         }
       ]
     },
+    "isSample": true,
     "createdAt": "2025-03-01T00:00:00Z",
     "updatedAt": "2025-03-01T00:00:00Z"
   },
@@ -320,10 +548,12 @@
     "name": "수프카레 식당 (예시)",
     "nameLocal": "スープカレー",
     "category": "restaurant",
+    "placeType": "restaurant",
     "location": {
       "lat": 43.0555,
       "lng": 141.353,
-      "address": "北海道札幌市中央区南4条西3丁目 (예시 주소)"
+      "address": "北海道札幌市中央区南4条西3丁目 (예시 주소)",
+      "precision": "approximate"
     },
     "thumbnail": "/images/placeholders/restaurant.svg",
     "shortDescription": "맵기 0단계 + 밥 따로, 아기와 나눠 먹기 좋아요",
@@ -341,6 +571,11 @@
       "diaperStation": false,
       "nursingRoom": false,
       "babyMenu": true
+    },
+    "childFriendliness": {
+      "stroller": null,
+      "meal": null,
+      "note": null
     },
     "tags": [
       "수프카레",
@@ -385,6 +620,7 @@
       ]
     },
     "priceLevel": 2,
+    "isSample": true,
     "createdAt": "2025-03-01T00:00:00Z",
     "updatedAt": "2025-03-01T00:00:00Z"
   },
@@ -394,10 +630,12 @@
     "name": "회전초밥집 (예시)",
     "nameLocal": "回転寿司",
     "category": "restaurant",
+    "placeType": "restaurant",
     "location": {
       "lat": 43.0687,
       "lng": 141.3508,
-      "address": "北海道札幌市北区北6条西4丁目 삿포로역 인근 (예시 주소)"
+      "address": "北海道札幌市北区北6条西4丁目 삿포로역 인근 (예시 주소)",
+      "precision": "approximate"
     },
     "thumbnail": "/images/placeholders/restaurant.svg",
     "shortDescription": "삿포로역 쇼핑몰 안, 계란말이·우동 등 아기 메뉴 다양",
@@ -418,6 +656,11 @@
       "diaperStation": true,
       "nursingRoom": true,
       "babyMenu": true
+    },
+    "childFriendliness": {
+      "stroller": null,
+      "meal": null,
+      "note": null
     },
     "tags": [
       "역근처",
@@ -457,6 +700,7 @@
       ]
     },
     "priceLevel": 2,
+    "isSample": true,
     "createdAt": "2025-03-01T00:00:00Z",
     "updatedAt": "2025-03-01T00:00:00Z"
   },
@@ -465,10 +709,12 @@
     "regionId": "sapporo",
     "name": "삿포로역 패밀리 호텔 (예시)",
     "category": "stay",
+    "placeType": "hotel",
     "location": {
       "lat": 43.0675,
       "lng": 141.3535,
-      "address": "北海道札幌市北区 삿포로역 도보 3분 (예시 주소)"
+      "address": "北海道札幌市北区 삿포로역 도보 3분 (예시 주소)",
+      "precision": "approximate"
     },
     "thumbnail": "/images/placeholders/stay.svg",
     "shortDescription": "역 지하상가 직결, 아기 침대·욕조 대여 가능",
@@ -489,6 +735,11 @@
       "diaperStation": false,
       "nursingRoom": false,
       "babyMenu": false
+    },
+    "childFriendliness": {
+      "stroller": null,
+      "meal": null,
+      "note": null
     },
     "tags": [
       "역직결",
@@ -539,6 +790,7 @@
       "label": "예약 및 최저가 확인하기"
     },
     "priceLevel": 2,
+    "isSample": true,
     "createdAt": "2025-03-01T00:00:00Z",
     "updatedAt": "2025-03-01T00:00:00Z"
   },
@@ -547,10 +799,12 @@
     "regionId": "jeju",
     "name": "에코랜드 테마파크",
     "category": "activity",
+    "placeType": "theme-park",
     "location": {
       "lat": 33.4566,
       "lng": 126.6672,
-      "address": "제주특별자치도 제주시 조천읍 번영로 1278-169"
+      "address": "제주특별자치도 제주시 조천읍 번영로 1278-169",
+      "precision": "approximate"
     },
     "thumbnail": "/images/placeholders/activity.svg",
     "shortDescription": "숲속 기차 여행, 역마다 내려서 산책할 수 있어요",
@@ -569,6 +823,11 @@
       "diaperStation": true,
       "nursingRoom": true,
       "babyMenu": false
+    },
+    "childFriendliness": {
+      "stroller": null,
+      "meal": null,
+      "note": null
     },
     "tags": [
       "기차",
@@ -619,6 +878,7 @@
       "provider": "klook",
       "label": "입장권 최저가 확인하기"
     },
+    "isSample": true,
     "createdAt": "2025-03-01T00:00:00Z",
     "updatedAt": "2025-03-01T00:00:00Z"
   },
@@ -627,10 +887,12 @@
     "regionId": "jeju",
     "name": "카멜리아힐",
     "category": "activity",
+    "placeType": "park",
     "location": {
       "lat": 33.2898,
       "lng": 126.3688,
-      "address": "제주특별자치도 서귀포시 안덕면 병악로 166"
+      "address": "제주특별자치도 서귀포시 안덕면 병악로 166",
+      "precision": "approximate"
     },
     "thumbnail": "/images/placeholders/activity.svg",
     "shortDescription": "겨울 동백, 여름 수국. 사계절 사진 명소",
@@ -649,6 +911,11 @@
       "diaperStation": true,
       "nursingRoom": false,
       "babyMenu": false
+    },
+    "childFriendliness": {
+      "stroller": null,
+      "meal": null,
+      "note": null
     },
     "tags": [
       "꽃",
@@ -686,6 +953,7 @@
         }
       ]
     },
+    "isSample": true,
     "createdAt": "2025-03-01T00:00:00Z",
     "updatedAt": "2025-03-01T00:00:00Z"
   },
@@ -694,10 +962,12 @@
     "regionId": "jeju",
     "name": "아쿠아플라넷 제주",
     "category": "activity",
+    "placeType": "aquarium",
     "location": {
       "lat": 33.4327,
       "lng": 126.9277,
-      "address": "제주특별자치도 서귀포시 성산읍 섭지코지로 95"
+      "address": "제주특별자치도 서귀포시 성산읍 섭지코지로 95",
+      "precision": "approximate"
     },
     "thumbnail": "/images/placeholders/activity.svg",
     "shortDescription": "비 오는 날 1순위 실내 아쿠아리움",
@@ -718,6 +988,11 @@
       "diaperStation": true,
       "nursingRoom": true,
       "babyMenu": true
+    },
+    "childFriendliness": {
+      "stroller": null,
+      "meal": null,
+      "note": null
     },
     "tags": [
       "실내",
@@ -767,6 +1042,7 @@
       "provider": "myrealtrip",
       "label": "입장권 최저가 확인하기"
     },
+    "isSample": true,
     "createdAt": "2025-03-01T00:00:00Z",
     "updatedAt": "2025-03-01T00:00:00Z"
   },
@@ -775,10 +1051,12 @@
     "regionId": "jeju",
     "name": "함덕 해수욕장",
     "category": "activity",
+    "placeType": "beach",
     "location": {
       "lat": 33.543,
       "lng": 126.6697,
-      "address": "제주특별자치도 제주시 조천읍 조함해안로 525"
+      "address": "제주특별자치도 제주시 조천읍 조함해안로 525",
+      "precision": "approximate"
     },
     "thumbnail": "/images/placeholders/activity.svg",
     "shortDescription": "수심이 얕고 물이 맑아 아기 첫 바다로 추천",
@@ -795,6 +1073,11 @@
       "diaperStation": false,
       "nursingRoom": false,
       "babyMenu": false
+    },
+    "childFriendliness": {
+      "stroller": null,
+      "meal": null,
+      "note": null
     },
     "tags": [
       "바다",
@@ -833,6 +1116,7 @@
         }
       ]
     },
+    "isSample": true,
     "createdAt": "2025-03-01T00:00:00Z",
     "updatedAt": "2025-03-01T00:00:00Z"
   },
@@ -841,10 +1125,12 @@
     "regionId": "jeju",
     "name": "흑돼지 구이집 (예시)",
     "category": "restaurant",
+    "placeType": "restaurant",
     "location": {
       "lat": 33.5,
       "lng": 126.53,
-      "address": "제주특별자치도 제주시 (예시 주소)"
+      "address": "제주특별자치도 제주시 (예시 주소)",
+      "precision": "approximate"
     },
     "thumbnail": "/images/placeholders/restaurant.svg",
     "shortDescription": "룸 좌석이 있어 아기와 편하게, 계란찜 서비스",
@@ -864,6 +1150,11 @@
       "diaperStation": false,
       "nursingRoom": false,
       "babyMenu": true
+    },
+    "childFriendliness": {
+      "stroller": null,
+      "meal": null,
+      "note": null
     },
     "tags": [
       "흑돼지",
@@ -909,6 +1200,7 @@
       ]
     },
     "priceLevel": 2,
+    "isSample": true,
     "createdAt": "2025-03-01T00:00:00Z",
     "updatedAt": "2025-03-01T00:00:00Z"
   },
@@ -917,10 +1209,12 @@
     "regionId": "jeju",
     "name": "고기국수 맛집 (예시)",
     "category": "restaurant",
+    "placeType": "restaurant",
     "location": {
       "lat": 33.4996,
       "lng": 126.519,
-      "address": "제주특별자치도 제주시 (예시 주소)"
+      "address": "제주특별자치도 제주시 (예시 주소)",
+      "precision": "approximate"
     },
     "thumbnail": "/images/placeholders/restaurant.svg",
     "shortDescription": "면을 잘라 주는 가위 제공, 맑은 육수",
@@ -940,6 +1234,11 @@
       "diaperStation": false,
       "nursingRoom": false,
       "babyMenu": false
+    },
+    "childFriendliness": {
+      "stroller": null,
+      "meal": null,
+      "note": null
     },
     "tags": [
       "고기국수",
@@ -979,6 +1278,7 @@
       ]
     },
     "priceLevel": 1,
+    "isSample": true,
     "createdAt": "2025-03-01T00:00:00Z",
     "updatedAt": "2025-03-01T00:00:00Z"
   },
@@ -987,10 +1287,12 @@
     "regionId": "jeju",
     "name": "서귀포 키즈 풀빌라 (예시)",
     "category": "stay",
+    "placeType": "hotel",
     "location": {
       "lat": 33.254,
       "lng": 126.41,
-      "address": "제주특별자치도 서귀포시 (예시 주소)"
+      "address": "제주특별자치도 서귀포시 (예시 주소)",
+      "precision": "approximate"
     },
     "thumbnail": "/images/placeholders/stay.svg",
     "shortDescription": "온수 개별 수영장 + 키즈룸, 아기 식기·욕조 구비",
@@ -1011,6 +1313,11 @@
       "diaperStation": true,
       "nursingRoom": false,
       "babyMenu": false
+    },
+    "childFriendliness": {
+      "stroller": null,
+      "meal": null,
+      "note": null
     },
     "tags": [
       "풀빌라",
@@ -1061,6 +1368,7 @@
       "label": "예약 및 최저가 확인하기"
     },
     "priceLevel": 3,
+    "isSample": true,
     "createdAt": "2025-03-01T00:00:00Z",
     "updatedAt": "2025-03-01T00:00:00Z"
   }

@@ -22,7 +22,8 @@
     "status": "published",
     "likeCount": 12,
     "createdAt": "2025-02-20T03:00:00Z",
-    "visitedAt": "2025-02"
+    "visitedAt": "2025-02",
+    "isSample": true
   },
   {
     "id": "seed-r2",
@@ -42,7 +43,8 @@
     "status": "published",
     "likeCount": 5,
     "createdAt": "2025-01-15T03:00:00Z",
-    "visitedAt": "2025-01"
+    "visitedAt": "2025-01",
+    "isSample": true
   },
   {
     "id": "seed-r3",
@@ -62,7 +64,8 @@
     "status": "published",
     "likeCount": 8,
     "createdAt": "2025-02-08T03:00:00Z",
-    "visitedAt": "2025-02"
+    "visitedAt": "2025-02",
+    "isSample": true
   },
   {
     "id": "seed-r4",
@@ -82,7 +85,8 @@
     "status": "published",
     "likeCount": 3,
     "createdAt": "2025-02-11T03:00:00Z",
-    "visitedAt": "2025-02"
+    "visitedAt": "2025-02",
+    "isSample": true
   },
   {
     "id": "seed-r5",
@@ -102,7 +106,8 @@
     "status": "published",
     "likeCount": 9,
     "createdAt": "2024-11-02T03:00:00Z",
-    "visitedAt": "2024-10"
+    "visitedAt": "2024-10",
+    "isSample": true
   },
   {
     "id": "seed-r6",
@@ -127,7 +132,8 @@
     "status": "published",
     "likeCount": 14,
     "createdAt": "2024-08-01T03:00:00Z",
-    "visitedAt": "2024-07"
+    "visitedAt": "2024-07",
+    "isSample": true
   },
   {
     "id": "seed-r7",
@@ -141,7 +147,8 @@
     "status": "published",
     "likeCount": 2,
     "createdAt": "2024-10-20T03:00:00Z",
-    "visitedAt": "2024-10"
+    "visitedAt": "2024-10",
+    "isSample": true
   },
   {
     "id": "seed-r8",
@@ -161,6 +168,7 @@
     "status": "published",
     "likeCount": 4,
     "createdAt": "2024-09-05T03:00:00Z",
-    "visitedAt": "2024-09"
+    "visitedAt": "2024-09",
+    "isSample": true
   }
 ]

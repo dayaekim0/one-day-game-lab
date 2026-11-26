@@ -12,8 +12,8 @@ const regions = (regionsJson as Region[]).slice().sort((a, b) => a.order - b.ord
 const SUBMISSIONS_KEY = 'submissions:v1';
 
 export const localPlaceRepository: PlaceRepository = {
-  async listPlaces(filter) {
-    return filterPlaces(places, filter);
+  async listPlaces(filter, ctx) {
+    return filterPlaces(places, filter, ctx);
   },
 
   async getPlace(id) {

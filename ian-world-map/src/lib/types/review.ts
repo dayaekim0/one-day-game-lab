@@ -23,6 +23,8 @@ export interface UserReview {
   status: ReviewStatus;
   likeCount: number;
   createdAt: ISODateString;
+  /** 화면 확인용 샘플 후기 여부 */
+  isSample?: boolean;
 }
 
 export interface NewUserReviewInput {

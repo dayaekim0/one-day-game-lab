@@ -1,5 +1,14 @@
-import type { AffiliateProvider, AgeRange, Category, Season } from './types';
-import type { AmenityKey } from './types';
+import type {
+  AffiliateProvider,
+  AgeRange,
+  AmenityKey,
+  Category,
+  EaseLevel,
+  ExpenseCategory,
+  ItineraryItemKind,
+  PlaceType,
+  Season,
+} from './types';
 
 export const AGE_RANGES: { value: AgeRange; label: string }[] = [
   { value: '6-12', label: '6~12개월' },
@@ -11,7 +20,47 @@ export const CATEGORIES: { value: Category; label: string; emoji: string }[] = [
   { value: 'restaurant', label: '아기식당', emoji: '🍚' },
   { value: 'activity', label: '놀이/활동', emoji: '🎠' },
   { value: 'stay', label: '숙소/편의시설', emoji: '🏨' },
+  { value: 'transport', label: '교통/공항', emoji: '✈️' },
 ];
+
+export const PLACE_TYPE_LABEL: Record<PlaceType, string> = {
+  airport: '공항',
+  ryokan: '료칸',
+  hotel: '호텔',
+  aquarium: '수족관',
+  zoo: '동물원',
+  park: '공원',
+  museum: '박물관',
+  shop: '상점',
+  restaurant: '식당',
+  cafe: '카페',
+  campus: '대학 캠퍼스',
+  beach: '해변',
+  'theme-park': '테마파크',
+  mall: '쇼핑몰',
+  other: '기타',
+};
+
+export const EASE_LABEL: Record<EaseLevel, string> = { good: '편해요', fair: '보통', poor: '불편해요' };
+
+export const EXPENSE_CATEGORY: Record<ExpenseCategory, { label: string; emoji: string; color: string }> = {
+  lodging: { label: '숙박', emoji: '🏨', color: '#4F7DF3' },
+  flight: { label: '항공', emoji: '✈️', color: '#7C5CE0' },
+  shopping: { label: '쇼핑·기념품', emoji: '🛍️', color: '#E0598B' },
+  food: { label: '식사·카페', emoji: '🍜', color: '#F08A3C' },
+  transport: { label: '교통', emoji: '🚃', color: '#2BA98A' },
+  etc: { label: '기타', emoji: '🧾', color: '#8A94A6' },
+};
+
+export const ITINERARY_KIND: Record<ItineraryItemKind, string> = {
+  place: '📍',
+  lodging: '🛏️',
+  meal: '🍽️',
+  shopping: '🛍️',
+  transport: '🚃',
+  flight: '✈️',
+  other: '•',
+};
 
 export const SEASONS: { value: Season; label: string; emoji: string }[] = [
   { value: 'spring', label: '봄', emoji: '🌸' },

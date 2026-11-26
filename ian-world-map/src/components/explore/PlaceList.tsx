@@ -3,19 +3,20 @@
 import { Fragment } from 'react';
 import { AdBannerSlot } from '@/components/monetization/AdBannerSlot';
 import { AD_SLOT_EVERY_N_CARDS } from '@/lib/constants';
-import type { Place } from '@/lib/types';
+import type { Place, PlaceVisit } from '@/lib/types';
 import { PlaceCard } from './PlaceCard';
 
 interface Props {
   places: Place[];
   reviewCounts: Record<string, number>;
+  visits: Record<string, PlaceVisit[]>;
   hoveredId: string | null;
   selectedId: string | null;
   onHover: (id: string | null) => void;
   onCardClick: (id: string) => void;
 }
 
-export function PlaceList({ places, reviewCounts, hoveredId, selectedId, onHover, onCardClick }: Props) {
+export function PlaceList({ places, reviewCounts, visits, hoveredId, selectedId, onHover, onCardClick }: Props) {
   return (
     <div className="grid grid-cols-1 gap-x-3 gap-y-4 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
       {places.map((p, i) => {
@@ -25,6 +26,7 @@ export function PlaceList({ places, reviewCounts, hoveredId, selectedId, onHover
             <PlaceCard
               place={p}
               reviewCount={reviewCounts[p.id] ?? 0}
+              visits={visits[p.id]}
               highlighted={hoveredId === p.id}
               selected={selectedId === p.id}
               onHover={onHover}

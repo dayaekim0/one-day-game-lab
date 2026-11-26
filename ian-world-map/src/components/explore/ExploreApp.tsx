@@ -4,28 +4,36 @@ import { useCallback, useEffect, useMemo, useState } from 'react';
 import { Header } from '@/components/layout/Header';
 import { MapView, type MapMarker } from '@/components/map/MapView';
 import { SubmitPlaceModal } from '@/components/submit-place/SubmitPlaceModal';
+import { TripCard } from '@/components/trip/TripCard';
+import { TripDetailModal } from '@/components/trip/TripDetailModal';
 import { useFilters } from '@/hooks/useFilters';
 import { DESKTOP_QUERY, useMediaQuery } from '@/hooks/useMediaQuery';
 import { useReviewCounts } from '@/hooks/useReviewCounts';
-import { filterPlaces } from '@/lib/filters';
-import type { Place, Region } from '@/lib/types';
+import { filterPlaces, type PlaceFilterContext } from '@/lib/filters';
+import { filterTrips } from '@/lib/trips';
+import type { Place, PlaceVisit, Region, TripBundle } from '@/lib/types';
 import { useExploreStore } from '@/store/exploreStore';
 import { MobileCarousel } from './MobileCarousel';
 import { PlaceList } from './PlaceList';
 import { RegionSummary } from './RegionSummary';
+import { SearchBox } from './SearchBox';
 import { ViewToggleFab } from './ViewToggleFab';
 
 interface Props {
   places: Place[];
   regions: Region[];
+  trips: TripBundle[];
+  visits: Record<string, PlaceVisit[]>;
 }
 
 /** 모바일 지도 하단 캐러셀 + 토글 버튼이 차지하는 높이 (지도 fit/pan 여백) */
 const MOBILE_BOTTOM_INSET = 220;
 
-export function ExploreApp({ places, regions }: Props) {
+export function ExploreApp({ places, regions, trips, visits }: Props) {
   const regionIds = useMemo(() => regions.map((r) => r.id), [regions]);
-  const { filters, setFilter, resetFilters } = useFilters(regionIds);
+  const { filters, setFilter, replaceFilters, resetFilters, hasFilter } = useFilters(regionIds);
+  const [openTripId, setOpenTripId] = useState<string | null>(null);
+  const [pendingSelect, setPendingSelect] = useState<string | null>(null);
   const isDesktop = useMediaQuery(DESKTOP_QUERY);
   const reviewCounts = useReviewCounts();
   const [submitOpen, setSubmitOpen] = useState(false);
@@ -33,18 +41,28 @@ export function ExploreApp({ places, regions }: Props) {
   const { hoveredId, selectedId, selectSource, mobileView, setHovered, select, setMobileView } =
     useExploreStore();
 
-  const visible = useMemo(() => filterPlaces(places, filters), [places, filters]);
+  const ctx = useMemo<PlaceFilterContext>(() => ({ visits, trips, regions }), [visits, trips, regions]);
+  const visible = useMemo(() => filterPlaces(places, filters, ctx), [places, filters, ctx]);
+  const visibleTrips = useMemo(() => filterTrips(trips, filters), [trips, filters]);
 
+  // 위치가 미입력인 장소는 목록에만 표시
   const markers = useMemo<MapMarker[]>(
     () =>
-      visible.map((p) => ({
-        id: p.id,
-        position: { lat: p.location.lat, lng: p.location.lng },
-        label: p.name,
-        category: p.category,
-      })),
+      visible.flatMap((p) =>
+        p.location
+          ? [
+              {
+                id: p.id,
+                position: { lat: p.location.lat, lng: p.location.lng },
+                label: p.name,
+                category: p.category,
+              },
+            ]
+          : [],
+      ),
     [visible],
   );
+  const unmappedCount = visible.length - markers.length;
 
   // 필터로 사라진 장소는 선택 해제
   useEffect(() => {
@@ -80,8 +98,25 @@ export function ExploreApp({ places, regions }: Props) {
     [select],
   );
 
-  const hasFilter =
-    filters.regionId !== 'all' || filters.ageRange !== 'all' || filters.category !== 'all';
+  /** 여행 일정에서 장소를 누르면: 필터에 가려져 있으면 해당 지역으로 바꾸고 지도에서 보여 줌 */
+  const showPlaceFromTrip = useCallback(
+    (placeId: string) => {
+      const place = places.find((p) => p.id === placeId);
+      if (!place) return;
+      setOpenTripId(null);
+      if (!visible.some((p) => p.id === placeId)) replaceFilters({ regionId: place.regionId });
+      setMobileView('map');
+      setPendingSelect(placeId); // 필터 변경이 반영된 뒤 선택
+    },
+    [places, visible, replaceFilters, setMobileView],
+  );
+
+  useEffect(() => {
+    if (pendingSelect && visible.some((p) => p.id === pendingSelect)) {
+      select(pendingSelect, 'list');
+      setPendingSelect(null);
+    }
+  }, [pendingSelect, visible, select]);
   const showList = isDesktop || mobileView === 'list';
 
   return (
@@ -106,21 +141,37 @@ export function ExploreApp({ places, regions }: Props) {
           } lg:block`}
         >
           <div className="space-y-4 px-4 pb-28 pt-4 lg:px-6 lg:pb-8">
+            <SearchBox value={filters.query} onChange={(q) => setFilter('query', q)} />
             <RegionSummary
               regions={regions}
               allPlaces={places}
               selectedRegionId={filters.regionId}
               onSelectRegion={(id) => setFilter('regionId', id)}
             />
-            <div className="flex items-center justify-between px-1">
+            {visibleTrips.length > 0 && !filters.query && (
+              <section aria-label="실제 여행 기록" className="space-y-2">
+                <h2 className="px-1 text-sm font-semibold">
+                  실제 가족여행 기록 <span className="text-brand">{visibleTrips.length}</span>건
+                </h2>
+                {visibleTrips.map((b) => (
+                  <TripCard key={b.trip.id} bundle={b} regions={regions} onOpen={setOpenTripId} />
+                ))}
+              </section>
+            )}
+            <div className="flex items-start justify-between gap-3 px-1">
               <p className="text-sm font-semibold">
                 아기랑 가기 좋은 장소 <span className="text-brand">{visible.length}</span>곳
+                {unmappedCount > 0 && (
+                  <span className="block text-xs font-normal text-muted sm:ml-1.5 sm:inline">
+                    (지도 위치 미입력 {unmappedCount}곳)
+                  </span>
+                )}
               </p>
               {hasFilter && (
                 <button
                   type="button"
                   onClick={resetFilters}
-                  className="text-sm text-muted underline underline-offset-2 hover:text-ink"
+                  className="shrink-0 text-sm text-muted underline underline-offset-2 hover:text-ink"
                 >
                   필터 초기화
                 </button>
@@ -130,6 +181,7 @@ export function ExploreApp({ places, regions }: Props) {
               <PlaceList
                 places={visible}
                 reviewCounts={reviewCounts}
+                visits={visits}
                 hoveredId={hoveredId}
                 selectedId={selectedId}
                 onHover={setHovered}
@@ -161,6 +213,7 @@ export function ExploreApp({ places, regions }: Props) {
                 <MobileCarousel
                   places={visible}
                   reviewCounts={reviewCounts}
+                  visits={visits}
                   selectedId={selectedId}
                   selectSource={selectSource}
                   onSelect={(id) => select(id, 'carousel')}
@@ -189,6 +242,14 @@ export function ExploreApp({ places, regions }: Props) {
           />
         )}
       </main>
+
+      <TripDetailModal
+        bundle={trips.find((b) => b.trip.id === openTripId) ?? null}
+        places={places}
+        regions={regions}
+        onClose={() => setOpenTripId(null)}
+        onShowPlace={showPlaceFromTrip}
+      />
 
       <SubmitPlaceModal
         open={submitOpen}

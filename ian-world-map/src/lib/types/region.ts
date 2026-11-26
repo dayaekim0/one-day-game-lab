@@ -1,6 +1,6 @@
 import type { AffiliateLink, GeoPoint, Season } from './common';
 
-export interface ItineraryDay {
+export interface RegionItineraryDay {
   day: number;
   title: string;
   /** places.json의 id 순서대로 동선 */
@@ -36,9 +36,12 @@ export interface Region {
   order: number;
   center: GeoPoint;
   zoom: number;
-  summary: string;
+  /** 지역 소개. 미입력 null */
+  summary: string | null;
   highlights?: string[];
-  itinerary: ItineraryDay[];
+  itinerary: RegionItineraryDay[];
   clothingGuide: Partial<Record<Season, ClothingTip>>;
   gearRecommendations: GearItem[];
+  /** 가이드(소개·일정·옷차림·육아템)가 샘플 데이터인지 */
+  guideIsSample: boolean;
 }

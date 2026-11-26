@@ -1,8 +1,20 @@
 /** 아기 개월 수 구간 */
 export type AgeRange = '6-12' | '13-24' | '24+';
 
-/** 장소 카테고리: 아기식당 / 놀이·활동 / 숙소·편의시설 */
-export type Category = 'restaurant' | 'activity' | 'stay';
+/** 장소 카테고리(상위 분류): 아기식당 / 놀이·활동 / 숙소·편의시설 / 교통·공항 */
+export type Category = 'restaurant' | 'activity' | 'stay' | 'transport';
+
+/**
+ * 확인 여부를 구분하는 값.
+ * true/false = 확인됨, null = 미입력(확인되지 않음). 임의로 채우지 않습니다.
+ */
+export type Tri = boolean | null;
+
+/** 아이 동반 편의 수준. null = 미입력 */
+export type EaseLevel = 'good' | 'fair' | 'poor';
+
+/** 금액은 항상 정수 + 통화 코드로 저장 */
+export type CurrencyCode = 'KRW' | 'JPY' | 'USD';
 
 export type Season = 'spring' | 'summer' | 'autumn' | 'winter';
 
