@@ -1,0 +1,40 @@
+<!DOCTYPE html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>지금 팔까? 📉 | ONE DAY LAB</title><style>*{box-sizing:border-box}body{margin:0;background:#f9f1d9;color:#232821;font-family:system-ui,sans-serif;display:grid;place-items:center;min-height:100dvh}main{width:min(94vw,430px);background:#fffdf4;border:3px solid #242920;border-radius:25px;box-shadow:8px 9px 0 #232821;padding:24px;text-align:center}h1{font-size:32px;margin:8px 0}p{line-height:1.5;word-break:keep-all}button{cursor:pointer;background:#f7c950;border:2px solid #232821;border-radius:13px;padding:12px 18px;margin:7px;font-weight:900;color:#232821;font-size:16px;box-shadow:3px 3px 0 #232821}button:active{transform:translate(2px,2px);box-shadow:none}button:disabled{opacity:.45;cursor:default}.scene{background:#c8e8d8;border:2px solid #232821;border-radius:18px;padding:14px;position:relative;overflow:hidden;margin:18px 0}.sub{font-size:12px;letter-spacing:2px;font-weight:900;color:#bb6957}.result{font-weight:900;font-size:20px;min-height:26px;line-height:1.4}a.back{font-size:13px;color:#666}.top{display:flex;justify-content:space-between;align-items:baseline;font-weight:900}.price{font-size:26px}.pct{font-size:18px}.up{color:#d63a2f}.down{color:#2f5fd6}canvas{display:block;width:100%;height:190px;background:#fffdf4;border:2px solid #232821;border-radius:12px;margin:10px 0}.news{background:#232821;color:#f7c950;border-radius:9px;padding:7px 10px;font-size:13px;font-weight:800;min-height:32px;text-align:left;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.timer{font-size:12px;font-weight:900;color:#555;margin-top:6px}#sell{background:#2f5fd6;color:#fff;font-size:20px;padding:14px 34px}#start{font-size:18px}.card{background:white;border:2px dashed #777;border-radius:10px;padding:12px;margin-top:10px;font-size:14px;font-weight:700;display:none}.small{font-size:11px;color:#777}</style></head><body><main><div class="sub">ONE DAY LAB · GAME</div><h1>지금 팔까? 📉</h1><p>10,000원에 샀다. 오를지 내릴지 아무도 모른다.<br>버튼은 <b>매도</b> 하나뿐. 언제 팔래?</p><div class="scene"><div class="top"><span class="price" id="price">10,000원</span><span class="pct" id="pct">0.00%</span></div><canvas id="chart"></canvas><div class="news" id="news">📢 장 시작 전... 마음의 준비를 하세요</div><div class="timer" id="timer">장 마감까지 15.0초</div><button id="start">📈 장 시작</button><button id="sell" disabled>매도 💸</button></div><div class="result" id="result"></div><div class="card" id="card"></div><button onclick="location.reload()">다시 하기 ↻</button><p><a class="back" href="index.html">← 게임 목록</a></p><p class="small">※ 차트는 전부 랜덤으로 만든 가짜입니다. 투자 조언 아님 🙅</p></main><script>
+const BUY=10000,TICK=100,MARKET=150,AFTER=35;
+const $=id=>document.getElementById(id);
+const cv=$('chart'),ctx=cv.getContext('2d');
+let prices=[BUY],t=0,soldAt=-1,timer=null,phase='ready',luck=Math.random();
+const goodNews=['속보: 대표가 "좋은 소식 있다" 트윗 🐦','외국인 순매수 몰려온다 🌊','유튜버 "이건 무조건 간다" 🔥','신제품 발표 루머 🤫','공매도 세력 항복 선언(?) 🏳️'];
+const badNews=['속보: 대표 출장 중 연락두절 📵','"고점 아님?" 단톡방 웅성웅성 💬','어제 산 사람들 손절 행렬 🏃','실적 발표 미뤄짐... 왜? 🤔','회사 앞 짜장면 가게 폐업 (무관함) 🍜'];
+const afterNews=['🚀 매도 1초 뒤: 상한가 직행','🚀 당신이 판 걸 확인한 주식이 오르기 시작함','🚀 단톡방: "와 이거 산 사람 부럽다"','🚀 "오늘의 급등주"에 선정됨'];
+function randn(){return Math.sqrt(-2*Math.log(Math.random()||1e-9))*Math.cos(2*Math.PI*Math.random())}
+function fmt(n){return Math.round(n).toLocaleString('ko-KR')+'원'}
+function pctOf(p){return (p/BUY-1)*100}
+function sign(v){return (v>0?'+':'')+v.toFixed(2)+'%'}
+function resize(){const r=window.devicePixelRatio||1;cv.width=cv.clientWidth*r;cv.height=cv.clientHeight*r;ctx.setTransform(r,0,0,r,0,0);draw()}
+function draw(){const w=cv.clientWidth,h=cv.clientHeight,pad=10,n=MARKET+AFTER;ctx.clearRect(0,0,w,h);
+ let lo=Math.min(...prices,BUY*0.9),hi=Math.max(...prices,BUY*1.1);const y=p=>h-pad-(p-lo)/(hi-lo)*(h-2*pad),x=i=>pad+i/n*(w-2*pad);
+ ctx.setLineDash([5,4]);ctx.strokeStyle='#999';ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(pad,y(BUY));ctx.lineTo(w-pad,y(BUY));ctx.stroke();ctx.setLineDash([]);
+ ctx.fillStyle='#999';ctx.font='bold 10px system-ui';ctx.fillText('내 평단',pad+2,y(BUY)-4);
+ ctx.lineWidth=2.5;ctx.lineJoin='round';
+ for(let i=1;i<prices.length;i++){ctx.strokeStyle=soldAt>=0&&i>soldAt?'#bbb':(prices[i]>=BUY?'#d63a2f':'#2f5fd6');if(soldAt>=0&&i>soldAt)ctx.strokeStyle=prices[i]>=prices[soldAt]?'#d63a2f99':'#2f5fd699';ctx.beginPath();ctx.moveTo(x(i-1),y(prices[i-1]));ctx.lineTo(x(i),y(prices[i]));ctx.stroke()}
+ if(soldAt>=0){const sx=x(soldAt),sy=y(prices[soldAt]);ctx.fillStyle='#2f5fd6';ctx.beginPath();ctx.arc(sx,sy,6,0,7);ctx.fill();ctx.strokeStyle='#232821';ctx.lineWidth=2;ctx.stroke();ctx.fillStyle='#232821';ctx.font='bold 11px system-ui';ctx.fillText('여기서 팜',Math.min(sx+8,w-60),sy-9)}}
+function show(){const p=prices[prices.length-1],v=pctOf(p);$('price').textContent=fmt(p);$('pct').textContent=sign(v);$('price').className='price '+(v>=0?'up':'down');$('pct').className='pct '+(v>=0?'up':'down');draw()}
+function step(){t++;let p=prices[prices.length-1];
+ if(phase==='market'){let jump=0;if(Math.random()<0.045){const good=Math.random()<0.5;jump=(good?1:-1)*(0.04+Math.random()*0.07);$('news').textContent=(good?goodNews:badNews)[Math.floor(Math.random()*5)]}
+  p*=1+0.0004+0.013*randn()+jump;p=Math.max(p,BUY*0.25);prices.push(p);$('timer').textContent='장 마감까지 '+Math.max(0,(MARKET-t)*TICK/1000).toFixed(1)+'초';
+  if(t>=MARKET){sell(true);return}}
+ else if(phase==='after'){const rocket=luck<0.8;p*=1+(rocket?0.011:-0.012)+0.008*randn();prices.push(p);if(t-soldAt===4)$('news').textContent=rocket?afterNews[Math.floor(Math.random()*afterNews.length)]:'📉 매도 직후: 그대로 폭락... 어떻게 알았어?';if(t-soldAt>=AFTER){clearInterval(timer);finish();return}}
+ show()}
+function start(){phase='market';$("start").style.display="none";$('sell').disabled=false;$('news').textContent='📢 장 시작! 심장 박동 주의';timer=setInterval(step,TICK)}
+function sell(timeout){if(phase!=='market')return;soldAt=prices.length-1;phase='after';$('sell').disabled=true;$('timer').textContent=timeout?'🔔 장 마감! 강제로 정리됨':'매도 완료... 근데 차트는 계속 움직인다';$('news').textContent=timeout?'🔔 결국 아무것도 못 하고 장이 끝났다':'✅ 매도 체결. 이제 마음 편히... 볼 수 있을까?';window.timeout=timeout;show()}
+function finish(){const sp=prices[soldAt],last=prices[prices.length-1],mine=pctOf(sp),regret=(last/sp-1)*100;let title,desc;
+ if(window.timeout){title='결정 장애 투자자 🔔';desc='15초 동안 고민만 하다 장이 끝났다.'}
+ else if(regret>8&&mine<0){title='손절하자마자 반등 장인 🫠';desc='제일 아플 때 팔고, 팔자마자 회복.'}
+ else if(regret>8){title='팔자마자 오르는 사람 🚀';desc='수익은 났다. 근데 왜 눈물이 나지?'}
+ else if(regret<-5&&mine>0){title='신의 손 🙌 (진짜임?)';desc='고점에서 팔았다. 스샷 찍어서 자랑해도 됨.'}
+ else if(regret<-5){title='그나마 다행 🩹';desc='잃긴 했는데, 더 잃을 뻔했다.'}
+ else{title='평범한 개미 🐜';desc='팔고 나서도 별일 없었다. 그게 제일 어려운 거야.'}
+ $('result').innerHTML=title;$('card').style.display='block';
+ $('card').innerHTML='매도가 '+fmt(sp)+' · 내 수익률 <span class="'+(mine>=0?'up':'down')+'">'+sign(mine)+'</span><br>판 뒤 주가 변화 <span class="'+(regret>=0?'up':'down')+'">'+sign(regret)+'</span><br><br>'+desc}
+$('start').onclick=start;$('sell').onclick=()=>sell(false);window.addEventListener('resize',resize);resize();show();
+</script></body></html>
