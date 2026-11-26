@@ -6,6 +6,8 @@ import { MapView, type MapMarker } from '@/components/map/MapView';
 import { SubmitPlaceModal } from '@/components/submit-place/SubmitPlaceModal';
 import { TripCard } from '@/components/trip/TripCard';
 import { TripDetailModal } from '@/components/trip/TripDetailModal';
+import { PlaceDetailModal } from '@/components/place-detail/PlaceDetailModal';
+import { RegionGuideModal } from '@/components/region-guide/RegionGuideModal';
 import { useFilters } from '@/hooks/useFilters';
 import { DESKTOP_QUERY, useMediaQuery } from '@/hooks/useMediaQuery';
 import { useReviewCounts } from '@/hooks/useReviewCounts';
@@ -33,6 +35,8 @@ export function ExploreApp({ places, regions, trips, visits }: Props) {
   const regionIds = useMemo(() => regions.map((r) => r.id), [regions]);
   const { filters, setFilter, replaceFilters, resetFilters, hasFilter } = useFilters(regionIds);
   const [openTripId, setOpenTripId] = useState<string | null>(null);
+  const [openPlaceId, setOpenPlaceId] = useState<string | null>(null);
+  const [guideRegionId, setGuideRegionId] = useState<string | null>(null);
   const [pendingSelect, setPendingSelect] = useState<string | null>(null);
   const isDesktop = useMediaQuery(DESKTOP_QUERY);
   const reviewCounts = useReviewCounts();
@@ -90,20 +94,30 @@ export function ExploreApp({ places, regions, trips, visits }: Props) {
     [isDesktop],
   );
 
+  /** 카드 클릭: 지도에서 선택 + 상세 모달 열기 */
   const onCardClick = useCallback(
     (id: string) => {
-      // TODO(4단계): 상세 모달 열기
       select(id, 'list');
+      setOpenPlaceId(id);
     },
     [select],
   );
 
-  /** 여행 일정에서 장소를 누르면: 필터에 가려져 있으면 해당 지역으로 바꾸고 지도에서 보여 줌 */
+  /** 다른 모달 위에서 여행 상세로 이동 */
+  const openTrip = useCallback((tripId: string) => {
+    setOpenPlaceId(null);
+    setGuideRegionId(null);
+    setOpenTripId(tripId);
+  }, []);
+
+  /** 일정·가이드에서 장소를 누르면: 모달을 닫고, 필터에 가려져 있으면 해당 지역으로 바꿔 지도에서 보여 줌 */
   const showPlaceFromTrip = useCallback(
     (placeId: string) => {
       const place = places.find((p) => p.id === placeId);
       if (!place) return;
       setOpenTripId(null);
+      setOpenPlaceId(null);
+      setGuideRegionId(null);
       if (!visible.some((p) => p.id === placeId)) replaceFilters({ regionId: place.regionId });
       setMobileView('map');
       setPendingSelect(placeId); // 필터 변경이 반영된 뒤 선택
@@ -147,6 +161,7 @@ export function ExploreApp({ places, regions, trips, visits }: Props) {
               allPlaces={places}
               selectedRegionId={filters.regionId}
               onSelectRegion={(id) => setFilter('regionId', id)}
+              onOpenGuide={setGuideRegionId}
             />
             {visibleTrips.length > 0 && !filters.query && (
               <section aria-label="실제 여행 기록" className="space-y-2">
@@ -242,6 +257,26 @@ export function ExploreApp({ places, regions, trips, visits }: Props) {
           />
         )}
       </main>
+
+      <PlaceDetailModal
+        place={places.find((p) => p.id === openPlaceId) ?? null}
+        places={places}
+        regions={regions}
+        trips={trips}
+        visits={visits}
+        onClose={() => setOpenPlaceId(null)}
+        onOpenTrip={openTrip}
+        onShowPlace={showPlaceFromTrip}
+      />
+
+      <RegionGuideModal
+        region={regions.find((r) => r.id === guideRegionId) ?? null}
+        places={places}
+        trips={trips}
+        onClose={() => setGuideRegionId(null)}
+        onShowPlace={showPlaceFromTrip}
+        onOpenTrip={openTrip}
+      />
 
       <TripDetailModal
         bundle={trips.find((b) => b.trip.id === openTripId) ?? null}

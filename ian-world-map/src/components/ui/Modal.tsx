@@ -11,25 +11,42 @@ interface ModalProps {
   footer?: ReactNode;
   /** PC에서의 최대 너비 */
   size?: 'md' | 'lg' | 'xl';
+  /** 겹쳐 여는 모달은 더 높은 값 */
+  z?: number;
 }
 
 const SIZE = { md: 'lg:max-w-lg', lg: 'lg:max-w-2xl', xl: 'lg:max-w-4xl' };
+
+/** 열린 모달 스택. Esc는 맨 위 모달만 닫음 (상세 모달 위 업로드 모달 등) */
+const stack: string[] = [];
 
 /**
  * 모바일: 아래에서 올라오는 전체 높이 시트 / PC: 가운데 다이얼로그.
  * Esc 닫기, 배경 클릭 닫기, 스크롤 잠금, 포커스 복귀 처리.
  */
-export function Modal({ open, onClose, title, children, footer, size = 'md' }: ModalProps) {
+export function Modal({
+  open,
+  onClose,
+  title,
+  children,
+  footer,
+  size = 'md',
+  z = 2000,
+}: ModalProps) {
   const titleId = useId();
   const panelRef = useRef<HTMLDivElement>(null);
+  // onClose가 렌더마다 바뀌어도 포커스/스크롤 처리가 다시 실행되지 않도록 ref로 보관
+  const onCloseRef = useRef(onClose);
+  onCloseRef.current = onClose;
 
   useEffect(() => {
     if (!open) return;
     const prevFocus = document.activeElement as HTMLElement | null;
     const prevOverflow = document.body.style.overflow;
     document.body.style.overflow = 'hidden';
+    stack.push(titleId);
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') onClose();
+      if (e.key === 'Escape' && stack[stack.length - 1] === titleId) onCloseRef.current();
     };
     window.addEventListener('keydown', onKey);
     const first = panelRef.current?.querySelector<HTMLElement>(
@@ -37,16 +54,20 @@ export function Modal({ open, onClose, title, children, footer, size = 'md' }: M
     );
     (first ?? panelRef.current)?.focus();
     return () => {
+      stack.splice(stack.indexOf(titleId), 1);
       document.body.style.overflow = prevOverflow;
       window.removeEventListener('keydown', onKey);
       prevFocus?.focus?.();
     };
-  }, [open, onClose]);
+  }, [open, titleId]);
 
   if (!open) return null;
 
   return createPortal(
-    <div className="fixed inset-0 z-[2000] flex items-end justify-center lg:items-center lg:p-6">
+    <div
+      className="fixed inset-0 flex items-end justify-center lg:items-center lg:p-6"
+      style={{ zIndex: z }}
+    >
       <div className="absolute inset-0 bg-black/50" onClick={onClose} aria-hidden />
       <div
         ref={panelRef}

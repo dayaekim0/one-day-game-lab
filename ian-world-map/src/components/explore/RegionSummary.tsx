@@ -7,10 +7,11 @@ interface Props {
   allPlaces: Place[];
   selectedRegionId: string | 'all';
   onSelectRegion: (id: string) => void;
+  onOpenGuide: (regionId: string) => void;
 }
 
 /** 리스트 상단 지역 요약 가이드 */
-export function RegionSummary({ regions, allPlaces, selectedRegionId, onSelectRegion }: Props) {
+export function RegionSummary({ regions, allPlaces, selectedRegionId, onSelectRegion, onOpenGuide }: Props) {
   const region = regions.find((r) => r.id === selectedRegionId);
 
   if (!region) {
@@ -81,6 +82,13 @@ export function RegionSummary({ regions, allPlaces, selectedRegionId, onSelectRe
           ))}
         </ol>
       )}
+      <button
+        type="button"
+        onClick={() => onOpenGuide(region.id)}
+        className="mt-3 rounded-full bg-white px-3.5 py-2 text-sm font-semibold shadow-sm hover:shadow-md"
+      >
+        🗺️ 지역 가이드 보기 (일정 · 옷차림 · 육아템) →
+      </button>
     </section>
   );
 }
