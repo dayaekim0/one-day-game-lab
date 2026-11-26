@@ -11,3 +11,43 @@
 
 html, body { height: 100%; }
 body { background: #ffffff; color: var(--color-ink); }
+
+/* ── 지도 핀 (Leaflet divIcon) ─────────────────────────── */
+.iwm-pin-wrap { background: none; border: 0; }
+.iwm-pin {
+  position: absolute;
+  transform: translate(-50%, -100%);
+  display: inline-flex; align-items: center; gap: 4px;
+  padding: 5px 10px 5px 7px;
+  border-radius: 9999px;
+  background: #fff; color: var(--color-ink);
+  font: 700 13px/1 var(--font-sans);
+  white-space: nowrap;
+  box-shadow: 0 0 0 1px rgb(0 0 0 / .08), 0 2px 6px rgb(0 0 0 / .18);
+  transition: transform .15s ease, background-color .15s ease, color .15s ease;
+  cursor: pointer;
+}
+.iwm-pin__emoji { font-size: 15px; }
+.iwm-pin__label { max-width: 9.5em; overflow: hidden; text-overflow: ellipsis; }
+/* 기본은 이모지만(겹침 방지). hover/선택 또는 충분히 확대했을 때 이름 표시 */
+.iwm-pin--default { padding: 6px; }
+.iwm-pin--default .iwm-pin__label { display: none; }
+.iwm-labels .iwm-pin--default { padding: 5px 10px 5px 7px; }
+.iwm-labels .iwm-pin--default .iwm-pin__label { display: inline; }
+.iwm-pin--hovered { transform: translate(-50%, -100%) scale(1.08); box-shadow: 0 0 0 2px var(--color-ink), 0 4px 10px rgb(0 0 0 / .25); }
+.iwm-pin--selected { background: var(--color-ink); color: #fff; transform: translate(-50%, -100%) scale(1.12); }
+.iwm-cluster {
+  position: absolute; transform: translate(-50%, -50%);
+  min-width: 40px; height: 40px; padding: 0 10px;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: 9999px; background: var(--color-brand); color: #fff;
+  font: 800 13px/1 var(--font-sans); white-space: nowrap; cursor: pointer;
+  box-shadow: 0 0 0 4px rgb(255 90 95 / .25), 0 2px 8px rgb(0 0 0 / .2);
+  transition: transform .15s ease;
+}
+.iwm-cluster--hovered, .iwm-cluster--selected { transform: translate(-50%, -50%) scale(1.12); background: var(--color-ink); box-shadow: 0 0 0 4px rgb(0 0 0 / .15), 0 4px 10px rgb(0 0 0 / .25); }
+.leaflet-container { font-family: var(--font-sans); background: #eef1f4; }
+.leaflet-marker-icon:focus-visible .iwm-pin { outline: 3px solid var(--color-brand); outline-offset: 2px; }
+
+.no-scrollbar { scrollbar-width: none; }
+.no-scrollbar::-webkit-scrollbar { display: none; }
