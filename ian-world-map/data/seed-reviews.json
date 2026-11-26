@@ -1,0 +1,166 @@
+[
+  {
+    "id": "seed-r1",
+    "placeId": "sapporo-maruyama-zoo",
+    "authorId": null,
+    "nickname": "콩이맘",
+    "babyAgeMonths": 10,
+    "ageRange": "6-12",
+    "tip": "북극곰관 2층 수유실이 제일 한산해요!",
+    "photos": [
+      {
+        "id": "seed-r1-p1",
+        "url": "/images/placeholders/activity.svg",
+        "kind": "activity"
+      },
+      {
+        "id": "seed-r1-p2",
+        "url": "/images/placeholders/facility.svg",
+        "kind": "facility"
+      }
+    ],
+    "status": "published",
+    "likeCount": 12,
+    "createdAt": "2025-02-20T03:00:00Z",
+    "visitedAt": "2025-02"
+  },
+  {
+    "id": "seed-r2",
+    "placeId": "sapporo-maruyama-zoo",
+    "authorId": null,
+    "nickname": "하준아빠",
+    "babyAgeMonths": 26,
+    "ageRange": "24+",
+    "tip": "정문 앞 코인락커에 방한복을 넣어 두면 실내관에서 편해요.",
+    "photos": [
+      {
+        "id": "seed-r2-p1",
+        "url": "/images/placeholders/exterior.svg",
+        "kind": "exterior"
+      }
+    ],
+    "status": "published",
+    "likeCount": 5,
+    "createdAt": "2025-01-15T03:00:00Z",
+    "visitedAt": "2025-01"
+  },
+  {
+    "id": "seed-r3",
+    "placeId": "sapporo-odori-park",
+    "authorId": null,
+    "nickname": "눈사람가족",
+    "babyAgeMonths": 20,
+    "ageRange": "13-24",
+    "tip": "눈축제 오전 9시 전에 가면 유모차로도 여유 있어요.",
+    "photos": [
+      {
+        "id": "seed-r3-p1",
+        "url": "/images/placeholders/exterior.svg",
+        "kind": "exterior"
+      }
+    ],
+    "status": "published",
+    "likeCount": 8,
+    "createdAt": "2025-02-08T03:00:00Z",
+    "visitedAt": "2025-02"
+  },
+  {
+    "id": "seed-r4",
+    "placeId": "sapporo-factory",
+    "authorId": null,
+    "nickname": "도담맘",
+    "babyAgeMonths": 15,
+    "ageRange": "13-24",
+    "tip": "베이비 라운지에 정수기랑 전자레인지가 있어요.",
+    "photos": [
+      {
+        "id": "seed-r4-p1",
+        "url": "/images/placeholders/facility.svg",
+        "kind": "facility"
+      }
+    ],
+    "status": "published",
+    "likeCount": 3,
+    "createdAt": "2025-02-11T03:00:00Z",
+    "visitedAt": "2025-02"
+  },
+  {
+    "id": "seed-r5",
+    "placeId": "jeju-aqua-planet",
+    "authorId": null,
+    "nickname": "제주살이3년차",
+    "babyAgeMonths": 30,
+    "ageRange": "24+",
+    "tip": "공연 시작 10분 전에 맨 앞줄 옆쪽에 앉으면 물이 안 튀어요.",
+    "photos": [
+      {
+        "id": "seed-r5-p1",
+        "url": "/images/placeholders/activity.svg",
+        "kind": "activity"
+      }
+    ],
+    "status": "published",
+    "likeCount": 9,
+    "createdAt": "2024-11-02T03:00:00Z",
+    "visitedAt": "2024-10"
+  },
+  {
+    "id": "seed-r6",
+    "placeId": "jeju-hamdeok-beach",
+    "authorId": null,
+    "nickname": "바다좋아",
+    "babyAgeMonths": 13,
+    "ageRange": "13-24",
+    "tip": "오전 10시 전에 가야 주차가 편하고 햇볕이 덜 강해요.",
+    "photos": [
+      {
+        "id": "seed-r6-p1",
+        "url": "/images/placeholders/exterior.svg",
+        "kind": "exterior"
+      },
+      {
+        "id": "seed-r6-p2",
+        "url": "/images/placeholders/activity.svg",
+        "kind": "activity"
+      }
+    ],
+    "status": "published",
+    "likeCount": 14,
+    "createdAt": "2024-08-01T03:00:00Z",
+    "visitedAt": "2024-07"
+  },
+  {
+    "id": "seed-r7",
+    "placeId": "jeju-ecoland",
+    "authorId": null,
+    "nickname": "숲속토끼",
+    "babyAgeMonths": 22,
+    "ageRange": "13-24",
+    "tip": "기차 맨 앞 칸에 타면 아기가 창밖을 잘 볼 수 있어요.",
+    "photos": [],
+    "status": "published",
+    "likeCount": 2,
+    "createdAt": "2024-10-20T03:00:00Z",
+    "visitedAt": "2024-10"
+  },
+  {
+    "id": "seed-r8",
+    "placeId": "jeju-kids-poolvilla-sample",
+    "authorId": null,
+    "nickname": "풀빌라탐험가",
+    "babyAgeMonths": 8,
+    "ageRange": "6-12",
+    "tip": "젖병 소독기가 있으니 휴대용 소독기는 놓고 오세요.",
+    "photos": [
+      {
+        "id": "seed-r8-p1",
+        "url": "/images/placeholders/facility.svg",
+        "kind": "facility"
+      }
+    ],
+    "status": "published",
+    "likeCount": 4,
+    "createdAt": "2024-09-05T03:00:00Z",
+    "visitedAt": "2024-09"
+  }
+]

@@ -1,0 +1,263 @@
+[
+  {
+    "id": "sapporo",
+    "name": "일본 삿포로",
+    "country": "일본",
+    "order": 1,
+    "center": {
+      "lat": 43.0618,
+      "lng": 141.3445
+    },
+    "zoom": 13,
+    "summary": "지하상가와 지하철이 잘 연결되어 있어서 겨울에도 유모차 여행이 가능한 도시예요. 2~3월 눈축제 시즌에는 방한 준비가 가장 중요해요.",
+    "highlights": [
+      "삿포로역~오도리~스스키노 지하상가 연결",
+      "대부분의 쇼핑몰에 수유실",
+      "이유식 데우기용 전자레인지가 있는 편의점"
+    ],
+    "itinerary": [
+      {
+        "day": 1,
+        "title": "도착 & 삿포로역 주변 적응",
+        "placeIds": [
+          "sapporo-station-hotel-sample",
+          "sapporo-kaiten-sushi-sample"
+        ],
+        "note": "신치토세 공항에서 JR로 약 40분. 첫날은 무리하지 말고 역 주변에서만 보내요."
+      },
+      {
+        "day": 2,
+        "title": "동물원 & 수프카레",
+        "placeIds": [
+          "sapporo-maruyama-zoo",
+          "sapporo-soup-curry-sample",
+          "sapporo-odori-park"
+        ],
+        "note": "오전엔 동물원, 낮잠은 택시 이동 중에, 저녁엔 오도리 공원 산책."
+      },
+      {
+        "day": 3,
+        "title": "실내 코스 (날씨 플랜 B)",
+        "placeIds": [
+          "sapporo-shiroi-koibito-park",
+          "sapporo-factory"
+        ],
+        "note": "눈보라 예보가 있으면 실내 위주로 이동해요."
+      }
+    ],
+    "clothingGuide": {
+      "winter": {
+        "tempRange": "-8℃ ~ 0℃",
+        "layers": [
+          "내복(울 혼방)",
+          "플리스 우주복",
+          "방수 패딩 점프슈트",
+          "방한 부티 + 귀마개 모자"
+        ],
+        "tip": "실내는 25℃ 가까이 따뜻해요. 앞지퍼 점프슈트가 있으면 들어가자마자 벗기기 편해요."
+      },
+      "summer": {
+        "tempRange": "18℃ ~ 26℃",
+        "layers": [
+          "반팔 바디수트",
+          "얇은 긴팔 가디건"
+        ],
+        "tip": "아침저녁엔 쌀쌀하니 가디건을 꼭 챙겨요."
+      },
+      "autumn": {
+        "tempRange": "5℃ ~ 15℃",
+        "layers": [
+          "긴팔 내의",
+          "경량 패딩 조끼",
+          "바람막이"
+        ],
+        "tip": "바람이 강해서 체감 온도가 낮아요."
+      },
+      "spring": {
+        "tempRange": "3℃ ~ 15℃",
+        "layers": [
+          "긴팔 내의",
+          "플리스",
+          "바람막이"
+        ],
+        "tip": "4월까지 눈이 남아 있을 수 있어요."
+      }
+    },
+    "gearRecommendations": [
+      {
+        "id": "gear-snow-suit",
+        "name": "방수 패딩 점프슈트",
+        "image": "/images/placeholders/gear.svg",
+        "category": "clothing",
+        "review": "눈밭에서 뒹굴어도 속까지 안 젖었어요. 앞지퍼라 입히고 벗기기 편해요.",
+        "affiliateLink": {
+          "url": "https://example.com/affiliate/coupang/gear-snow-suit",
+          "provider": "coupang"
+        }
+      },
+      {
+        "id": "gear-stroller-cover",
+        "name": "유모차 방풍 커버",
+        "image": "/images/placeholders/gear.svg",
+        "category": "stroller",
+        "review": "눈보라 속에서도 아기가 따뜻하게 잤어요. 접어도 부피가 작아요.",
+        "affiliateLink": {
+          "url": "https://example.com/affiliate/coupang/gear-stroller-cover",
+          "provider": "coupang"
+        }
+      },
+      {
+        "id": "gear-stroller-ski",
+        "name": "유모차 바퀴 스키(눈길용)",
+        "image": "/images/placeholders/gear.svg",
+        "category": "stroller",
+        "review": "눈 쌓인 오도리 공원에서 효과가 확실했어요.",
+        "affiliateLink": {
+          "url": "https://example.com/affiliate/coupang/gear-stroller-ski",
+          "provider": "coupang"
+        }
+      },
+      {
+        "id": "gear-food-warmer",
+        "name": "휴대용 이유식 보온병",
+        "image": "/images/placeholders/gear.svg",
+        "category": "feeding",
+        "review": "편의점 전자레인지를 못 찾을 때 유용했어요.",
+        "affiliateLink": {
+          "url": "https://example.com/affiliate/coupang/gear-food-warmer",
+          "provider": "coupang"
+        }
+      }
+    ]
+  },
+  {
+    "id": "jeju",
+    "name": "제주",
+    "country": "대한민국",
+    "order": 2,
+    "center": {
+      "lat": 33.39,
+      "lng": 126.56
+    },
+    "zoom": 10,
+    "summary": "렌터카로 이동하면 아기 컨디션에 맞춰 일정을 조절하기 쉬워요. 동쪽(함덕·성산)과 서쪽(안덕·서귀포)을 나눠서 하루씩 돌면 이동 시간이 줄어요.",
+    "highlights": [
+      "대부분 관광지에 수유실",
+      "카시트 대여 가능 렌터카 다수",
+      "비 오는 날 실내 코스 풍부"
+    ],
+    "itinerary": [
+      {
+        "day": 1,
+        "title": "제주시 & 동쪽 바다",
+        "placeIds": [
+          "jeju-gogi-guksu-sample",
+          "jeju-hamdeok-beach"
+        ],
+        "note": "공항에서 가까운 고기국수로 점심, 오후엔 함덕 바다에서 발 담그기."
+      },
+      {
+        "day": 2,
+        "title": "숲과 바다 (동쪽)",
+        "placeIds": [
+          "jeju-ecoland",
+          "jeju-aqua-planet",
+          "jeju-black-pork-sample"
+        ],
+        "note": "에코랜드는 오전 일찍, 낮잠은 성산 이동 중에."
+      },
+      {
+        "day": 3,
+        "title": "서쪽 꽃길 & 풀빌라",
+        "placeIds": [
+          "jeju-camellia-hill",
+          "jeju-kids-poolvilla-sample"
+        ],
+        "note": "체크인 후에는 숙소에서 물놀이로 마무리해요."
+      }
+    ],
+    "clothingGuide": {
+      "summer": {
+        "tempRange": "24℃ ~ 31℃",
+        "layers": [
+          "린넨 바디수트",
+          "UV 차단 래시가드(물놀이)",
+          "챙 넓은 모자"
+        ],
+        "tip": "바닷바람이 강해서 모자 끈이 필수예요."
+      },
+      "winter": {
+        "tempRange": "3℃ ~ 9℃",
+        "layers": [
+          "긴팔 내의",
+          "플리스",
+          "방풍 패딩"
+        ],
+        "tip": "기온보다 바람이 매서워요. 방풍이 되는 겉옷을 챙기세요."
+      },
+      "spring": {
+        "tempRange": "10℃ ~ 19℃",
+        "layers": [
+          "긴팔 내의",
+          "얇은 가디건",
+          "바람막이"
+        ],
+        "tip": "일교차가 커요."
+      },
+      "autumn": {
+        "tempRange": "14℃ ~ 23℃",
+        "layers": [
+          "긴팔 바디수트",
+          "얇은 바람막이"
+        ],
+        "tip": "산책하기 가장 좋은 계절이에요."
+      }
+    },
+    "gearRecommendations": [
+      {
+        "id": "gear-rash-guard",
+        "name": "유아 UV 래시가드 세트",
+        "image": "/images/placeholders/gear.svg",
+        "category": "clothing",
+        "review": "햇볕이 강한 함덕에서도 피부가 빨개지지 않았어요.",
+        "affiliateLink": {
+          "url": "https://example.com/affiliate/coupang/gear-rash-guard",
+          "provider": "coupang"
+        }
+      },
+      {
+        "id": "gear-popup-tent",
+        "name": "원터치 비치 텐트",
+        "image": "/images/placeholders/gear.svg",
+        "category": "etc",
+        "review": "그늘 없는 해변에서 낮잠 자리로 최고였어요.",
+        "affiliateLink": {
+          "url": "https://example.com/affiliate/coupang/gear-popup-tent",
+          "provider": "coupang"
+        }
+      },
+      {
+        "id": "gear-car-seat-toy",
+        "name": "카시트 장난감 걸이",
+        "image": "/images/placeholders/gear.svg",
+        "category": "etc",
+        "review": "렌터카 이동 시간 30분을 버티게 해 준 효자템이에요.",
+        "affiliateLink": {
+          "url": "https://example.com/affiliate/coupang/gear-car-seat-toy",
+          "provider": "coupang"
+        }
+      },
+      {
+        "id": "gear-swim-diaper",
+        "name": "방수 수영 기저귀",
+        "image": "/images/placeholders/gear.svg",
+        "category": "clothing",
+        "review": "풀빌라 온수풀에서 필수예요.",
+        "affiliateLink": {
+          "url": "https://example.com/affiliate/coupang/gear-swim-diaper",
+          "provider": "coupang"
+        }
+      }
+    ]
+  }
+]

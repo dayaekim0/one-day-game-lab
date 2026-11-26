@@ -1,0 +1,1067 @@
+[
+  {
+    "id": "sapporo-odori-park",
+    "regionId": "sapporo",
+    "name": "오도리 공원",
+    "nameLocal": "大通公園",
+    "category": "activity",
+    "location": {
+      "lat": 43.0601,
+      "lng": 141.3485,
+      "address": "北海道札幌市中央区大通西1〜12丁目"
+    },
+    "thumbnail": "/images/placeholders/activity.svg",
+    "shortDescription": "잔디밭에서 뛰놀기 좋은 도심 공원, 겨울엔 눈축제",
+    "ageRanges": [
+      "6-12",
+      "13-24",
+      "24+"
+    ],
+    "seasons": [
+      "spring",
+      "summer",
+      "winter"
+    ],
+    "amenities": {
+      "highChair": false,
+      "strollerAccess": true,
+      "diaperStation": true,
+      "nursingRoom": false,
+      "babyMenu": false
+    },
+    "tags": [
+      "무료",
+      "도심",
+      "눈축제"
+    ],
+    "editorReview": {
+      "author": "이안이 엄마",
+      "visitedAt": "2025-02",
+      "babyAgeMonthsAtVisit": 18,
+      "summary": "평지라 유모차로 끝에서 끝까지 걷기 편했어요. 눈축제 기간엔 사람이 많아서 오전 일찍 가는 걸 추천해요.",
+      "photos": [
+        {
+          "id": "sapporo-odori-park-1",
+          "url": "/images/placeholders/exterior.svg",
+          "kind": "exterior",
+          "caption": "눈축제 기간의 오도리 공원"
+        },
+        {
+          "id": "sapporo-odori-park-2",
+          "url": "/images/placeholders/activity.svg",
+          "kind": "activity",
+          "caption": "작은 눈썰매 코스"
+        },
+        {
+          "id": "sapporo-odori-park-3",
+          "url": "/images/placeholders/facility.svg",
+          "kind": "facility",
+          "caption": "공원 근처 공중화장실"
+        }
+      ],
+      "activityPoints": [
+        "눈 조각 구경",
+        "작은 눈썰매 체험",
+        "여름엔 분수 물놀이"
+      ],
+      "strollerTips": "눈축제 기간엔 통로가 미끄러워 유모차 바퀴에 눈이 끼어요. 아기띠를 함께 챙기세요.",
+      "links": [
+        {
+          "type": "blog",
+          "url": "https://example.com/blog/sapporo-odori-park",
+          "title": "이안이와 다녀온 기록 (예시 링크)"
+        }
+      ]
+    },
+    "createdAt": "2025-03-01T00:00:00Z",
+    "updatedAt": "2025-03-01T00:00:00Z"
+  },
+  {
+    "id": "sapporo-maruyama-zoo",
+    "regionId": "sapporo",
+    "name": "마루야마 동물원",
+    "nameLocal": "円山動物園",
+    "category": "activity",
+    "location": {
+      "lat": 43.0533,
+      "lng": 141.3065,
+      "address": "北海道札幌市中央区宮ヶ丘3-1"
+    },
+    "thumbnail": "/images/placeholders/activity.svg",
+    "shortDescription": "실내 관람동이 많아 추운 날에도 OK, 북극곰이 인기",
+    "ageRanges": [
+      "6-12",
+      "13-24",
+      "24+"
+    ],
+    "seasons": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+    ],
+    "amenities": {
+      "highChair": true,
+      "strollerAccess": true,
+      "diaperStation": true,
+      "nursingRoom": true,
+      "babyMenu": false
+    },
+    "tags": [
+      "실내관람",
+      "수유실",
+      "유모차 대여"
+    ],
+    "editorReview": {
+      "author": "이안이 엄마",
+      "visitedAt": "2025-02",
+      "babyAgeMonthsAtVisit": 18,
+      "summary": "수유실과 기저귀 갈이대가 곳곳에 있어 편했어요. 북극곰 수중 터널에서 아기가 제일 좋아했어요.",
+      "photos": [
+        {
+          "id": "sapporo-maruyama-zoo-1",
+          "url": "/images/placeholders/exterior.svg",
+          "kind": "exterior",
+          "caption": "동물원 정문"
+        },
+        {
+          "id": "sapporo-maruyama-zoo-2",
+          "url": "/images/placeholders/activity.svg",
+          "kind": "activity",
+          "caption": "북극곰 수중 터널"
+        },
+        {
+          "id": "sapporo-maruyama-zoo-3",
+          "url": "/images/placeholders/facility.svg",
+          "kind": "facility",
+          "caption": "깨끗한 수유실"
+        }
+      ],
+      "activityPoints": [
+        "북극곰 수중 터널",
+        "실내 열대동물관",
+        "어린이 동물원 먹이주기"
+      ],
+      "strollerTips": "언덕이 있어서 정문 → 북극곰관 → 열대관 순서로 내려오면 편해요.",
+      "links": [
+        {
+          "type": "blog",
+          "url": "https://example.com/blog/sapporo-maruyama-zoo",
+          "title": "이안이와 다녀온 기록 (예시 링크)"
+        }
+      ]
+    },
+    "createdAt": "2025-03-01T00:00:00Z",
+    "updatedAt": "2025-03-01T00:00:00Z"
+  },
+  {
+    "id": "sapporo-shiroi-koibito-park",
+    "regionId": "sapporo",
+    "name": "시로이 코이비토 파크",
+    "nameLocal": "白い恋人パーク",
+    "category": "activity",
+    "location": {
+      "lat": 43.0889,
+      "lng": 141.2716,
+      "address": "北海道札幌市西区宮の沢2条2丁目11-36"
+    },
+    "thumbnail": "/images/placeholders/activity.svg",
+    "shortDescription": "과자 공장 견학 + 예쁜 정원, 실내 위주라 겨울에 좋아요",
+    "ageRanges": [
+      "13-24",
+      "24+"
+    ],
+    "seasons": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+    ],
+    "amenities": {
+      "highChair": true,
+      "strollerAccess": true,
+      "diaperStation": true,
+      "nursingRoom": false,
+      "babyMenu": false
+    },
+    "tags": [
+      "실내",
+      "과자공장",
+      "사진명소"
+    ],
+    "editorReview": {
+      "author": "이안이 엄마",
+      "visitedAt": "2025-02",
+      "babyAgeMonthsAtVisit": 18,
+      "summary": "엘리베이터가 있어 유모차로 공장 견학이 가능했어요. 쿠키 만들기 체험은 24개월 이상에게 추천해요.",
+      "photos": [
+        {
+          "id": "sapporo-shiroi-koibito-park-1",
+          "url": "/images/placeholders/exterior.svg",
+          "kind": "exterior",
+          "caption": "유럽풍 건물 외관"
+        },
+        {
+          "id": "sapporo-shiroi-koibito-park-2",
+          "url": "/images/placeholders/food.svg",
+          "kind": "food",
+          "caption": "카페의 아이스크림"
+        },
+        {
+          "id": "sapporo-shiroi-koibito-park-3",
+          "url": "/images/placeholders/facility.svg",
+          "kind": "facility",
+          "caption": "엘리베이터 입구"
+        }
+      ],
+      "babyFoodPicks": [
+        "카페 소프트 아이스크림(조금씩)"
+      ],
+      "activityPoints": [
+        "과자 생산라인 견학",
+        "정원 미니 기차"
+      ],
+      "strollerTips": "지하철 미야노사와역에서 7분. 출구 엘리베이터를 이용하세요.",
+      "links": [
+        {
+          "type": "blog",
+          "url": "https://example.com/blog/sapporo-shiroi-koibito-park",
+          "title": "이안이와 다녀온 기록 (예시 링크)"
+        }
+      ]
+    },
+    "createdAt": "2025-03-01T00:00:00Z",
+    "updatedAt": "2025-03-01T00:00:00Z"
+  },
+  {
+    "id": "sapporo-factory",
+    "regionId": "sapporo",
+    "name": "삿포로 팩토리",
+    "nameLocal": "サッポロファクトリー",
+    "category": "activity",
+    "location": {
+      "lat": 43.0656,
+      "lng": 141.3627,
+      "address": "北海道札幌市中央区北2条東4丁目"
+    },
+    "thumbnail": "/images/placeholders/activity.svg",
+    "shortDescription": "날씨 나쁜 날 피난처, 실내 키즈 놀이공간",
+    "ageRanges": [
+      "6-12",
+      "13-24",
+      "24+"
+    ],
+    "seasons": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+    ],
+    "amenities": {
+      "highChair": true,
+      "strollerAccess": true,
+      "diaperStation": true,
+      "nursingRoom": true,
+      "babyMenu": true
+    },
+    "tags": [
+      "쇼핑몰",
+      "실내놀이터",
+      "우천시"
+    ],
+    "editorReview": {
+      "author": "이안이 엄마",
+      "visitedAt": "2025-02",
+      "babyAgeMonthsAtVisit": 18,
+      "summary": "눈보라 치는 날 실내 놀이터에서 2시간을 보냈어요. 푸드코트에 유아용 의자가 넉넉해요.",
+      "photos": [
+        {
+          "id": "sapporo-factory-1",
+          "url": "/images/placeholders/exterior.svg",
+          "kind": "exterior",
+          "caption": "유리 지붕 아트리움"
+        },
+        {
+          "id": "sapporo-factory-2",
+          "url": "/images/placeholders/food.svg",
+          "kind": "food",
+          "caption": "푸드코트 우동"
+        },
+        {
+          "id": "sapporo-factory-3",
+          "url": "/images/placeholders/facility.svg",
+          "kind": "facility",
+          "caption": "베이비 라운지"
+        }
+      ],
+      "babyFoodPicks": [
+        "푸드코트 키즈 우동",
+        "주먹밥"
+      ],
+      "activityPoints": [
+        "실내 놀이터",
+        "크리스마스 트리 장식(겨울)"
+      ],
+      "strollerTips": "모든 동이 연결통로로 이어져 있어 밖에 나가지 않고 이동할 수 있어요.",
+      "links": [
+        {
+          "type": "blog",
+          "url": "https://example.com/blog/sapporo-factory",
+          "title": "이안이와 다녀온 기록 (예시 링크)"
+        }
+      ]
+    },
+    "createdAt": "2025-03-01T00:00:00Z",
+    "updatedAt": "2025-03-01T00:00:00Z"
+  },
+  {
+    "id": "sapporo-soup-curry-sample",
+    "regionId": "sapporo",
+    "name": "수프카레 식당 (예시)",
+    "nameLocal": "スープカレー",
+    "category": "restaurant",
+    "location": {
+      "lat": 43.0555,
+      "lng": 141.353,
+      "address": "北海道札幌市中央区南4条西3丁目 (예시 주소)"
+    },
+    "thumbnail": "/images/placeholders/restaurant.svg",
+    "shortDescription": "맵기 0단계 + 밥 따로, 아기와 나눠 먹기 좋아요",
+    "ageRanges": [
+      "13-24",
+      "24+"
+    ],
+    "seasons": [
+      "autumn",
+      "winter"
+    ],
+    "amenities": {
+      "highChair": true,
+      "strollerAccess": false,
+      "diaperStation": false,
+      "nursingRoom": false,
+      "babyMenu": true
+    },
+    "tags": [
+      "수프카레",
+      "현지맛집"
+    ],
+    "editorReview": {
+      "author": "이안이 엄마",
+      "visitedAt": "2025-02",
+      "babyAgeMonthsAtVisit": 18,
+      "summary": "매운맛 0단계로 주문하고 감자, 단호박 토핑을 잘라 줬어요. 지하라 유모차는 입구에 두고 들어갔어요.",
+      "photos": [
+        {
+          "id": "sapporo-soup-curry-sample-1",
+          "url": "/images/placeholders/exterior.svg",
+          "kind": "exterior",
+          "caption": "지하 입구"
+        },
+        {
+          "id": "sapporo-soup-curry-sample-2",
+          "url": "/images/placeholders/food.svg",
+          "kind": "food",
+          "caption": "맵기 0단계 수프카레"
+        },
+        {
+          "id": "sapporo-soup-curry-sample-3",
+          "url": "/images/placeholders/facility.svg",
+          "kind": "facility",
+          "caption": "유아용 의자"
+        }
+      ],
+      "babyFoodPicks": [
+        "밥 + 감자·단호박 토핑",
+        "삶은 달걀"
+      ],
+      "strollerTips": "지하 계단이 15개 정도 있어요. 아기띠를 추천해요.",
+      "links": [
+        {
+          "type": "blog",
+          "url": "https://example.com/blog/sapporo-soup-curry-sample",
+          "title": "이안이와 다녀온 기록 (예시 링크)"
+        }
+      ]
+    },
+    "priceLevel": 2,
+    "createdAt": "2025-03-01T00:00:00Z",
+    "updatedAt": "2025-03-01T00:00:00Z"
+  },
+  {
+    "id": "sapporo-kaiten-sushi-sample",
+    "regionId": "sapporo",
+    "name": "회전초밥집 (예시)",
+    "nameLocal": "回転寿司",
+    "category": "restaurant",
+    "location": {
+      "lat": 43.0687,
+      "lng": 141.3508,
+      "address": "北海道札幌市北区北6条西4丁目 삿포로역 인근 (예시 주소)"
+    },
+    "thumbnail": "/images/placeholders/restaurant.svg",
+    "shortDescription": "삿포로역 쇼핑몰 안, 계란말이·우동 등 아기 메뉴 다양",
+    "ageRanges": [
+      "6-12",
+      "13-24",
+      "24+"
+    ],
+    "seasons": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+    ],
+    "amenities": {
+      "highChair": true,
+      "strollerAccess": true,
+      "diaperStation": true,
+      "nursingRoom": true,
+      "babyMenu": true
+    },
+    "tags": [
+      "역근처",
+      "대기있음"
+    ],
+    "editorReview": {
+      "author": "이안이 엄마",
+      "visitedAt": "2025-02",
+      "babyAgeMonthsAtVisit": 18,
+      "summary": "테이블석이 넓어서 유모차를 옆에 두고 먹을 수 있었어요. 오픈 직후에 가면 대기가 없어요.",
+      "photos": [
+        {
+          "id": "sapporo-kaiten-sushi-sample-1",
+          "url": "/images/placeholders/exterior.svg",
+          "kind": "exterior",
+          "caption": "쇼핑몰 식당가"
+        },
+        {
+          "id": "sapporo-kaiten-sushi-sample-2",
+          "url": "/images/placeholders/food.svg",
+          "kind": "food",
+          "caption": "계란말이 초밥과 우동"
+        }
+      ],
+      "babyFoodPicks": [
+        "계란말이(타마고)",
+        "키즈 우동",
+        "옥수수 군함"
+      ],
+      "strollerTips": "쇼핑몰 안이라 엘리베이터로 바로 갈 수 있어요. 수유실은 같은 층에 있어요.",
+      "links": [
+        {
+          "type": "blog",
+          "url": "https://example.com/blog/sapporo-kaiten-sushi-sample",
+          "title": "이안이와 다녀온 기록 (예시 링크)"
+        }
+      ]
+    },
+    "priceLevel": 2,
+    "createdAt": "2025-03-01T00:00:00Z",
+    "updatedAt": "2025-03-01T00:00:00Z"
+  },
+  {
+    "id": "sapporo-station-hotel-sample",
+    "regionId": "sapporo",
+    "name": "삿포로역 패밀리 호텔 (예시)",
+    "category": "stay",
+    "location": {
+      "lat": 43.0675,
+      "lng": 141.3535,
+      "address": "北海道札幌市北区 삿포로역 도보 3분 (예시 주소)"
+    },
+    "thumbnail": "/images/placeholders/stay.svg",
+    "shortDescription": "역 지하상가 직결, 아기 침대·욕조 대여 가능",
+    "ageRanges": [
+      "6-12",
+      "13-24",
+      "24+"
+    ],
+    "seasons": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+    ],
+    "amenities": {
+      "highChair": false,
+      "strollerAccess": true,
+      "diaperStation": false,
+      "nursingRoom": false,
+      "babyMenu": false
+    },
+    "tags": [
+      "역직결",
+      "아기침대 대여",
+      "전자레인지"
+    ],
+    "editorReview": {
+      "author": "이안이 엄마",
+      "visitedAt": "2025-02",
+      "babyAgeMonthsAtVisit": 18,
+      "summary": "지하상가로 연결돼 눈 오는 날에도 유모차로 이동할 수 있었어요. 아기 욕조와 침대는 예약할 때 미리 요청하세요.",
+      "photos": [
+        {
+          "id": "sapporo-station-hotel-sample-1",
+          "url": "/images/placeholders/exterior.svg",
+          "kind": "exterior",
+          "caption": "호텔 외관"
+        },
+        {
+          "id": "sapporo-station-hotel-sample-2",
+          "url": "/images/placeholders/facility.svg",
+          "kind": "facility",
+          "caption": "대여한 아기 침대"
+        },
+        {
+          "id": "sapporo-station-hotel-sample-3",
+          "url": "/images/placeholders/facility.svg",
+          "kind": "facility",
+          "caption": "객실 내 전자레인지"
+        }
+      ],
+      "activityPoints": [
+        "이유식 데우기용 전자레인지",
+        "로비에 유아 식기 대여"
+      ],
+      "strollerTips": "지하상가 출구 10번 엘리베이터로 바로 연결돼요.",
+      "links": [
+        {
+          "type": "blog",
+          "url": "https://example.com/blog/sapporo-station-hotel-sample",
+          "title": "이안이와 다녀온 기록 (예시 링크)"
+        }
+      ]
+    },
+    "affiliateLink": {
+      "url": "https://example.com/affiliate/agoda/sapporo-hotel",
+      "provider": "agoda",
+      "label": "예약 및 최저가 확인하기"
+    },
+    "priceLevel": 2,
+    "createdAt": "2025-03-01T00:00:00Z",
+    "updatedAt": "2025-03-01T00:00:00Z"
+  },
+  {
+    "id": "jeju-ecoland",
+    "regionId": "jeju",
+    "name": "에코랜드 테마파크",
+    "category": "activity",
+    "location": {
+      "lat": 33.4566,
+      "lng": 126.6672,
+      "address": "제주특별자치도 제주시 조천읍 번영로 1278-169"
+    },
+    "thumbnail": "/images/placeholders/activity.svg",
+    "shortDescription": "숲속 기차 여행, 역마다 내려서 산책할 수 있어요",
+    "ageRanges": [
+      "13-24",
+      "24+"
+    ],
+    "seasons": [
+      "spring",
+      "summer",
+      "autumn"
+    ],
+    "amenities": {
+      "highChair": false,
+      "strollerAccess": true,
+      "diaperStation": true,
+      "nursingRoom": true,
+      "babyMenu": false
+    },
+    "tags": [
+      "기차",
+      "숲",
+      "입장권 할인"
+    ],
+    "editorReview": {
+      "author": "이안이 엄마",
+      "visitedAt": "2024-10",
+      "babyAgeMonthsAtVisit": 14,
+      "summary": "기차 안에 유모차를 접어서 실을 수 있어요. 레이크사이드역 산책로가 평탄해서 걷기 좋았어요.",
+      "photos": [
+        {
+          "id": "jeju-ecoland-1",
+          "url": "/images/placeholders/exterior.svg",
+          "kind": "exterior",
+          "caption": "기차 승차장"
+        },
+        {
+          "id": "jeju-ecoland-2",
+          "url": "/images/placeholders/activity.svg",
+          "kind": "activity",
+          "caption": "호숫가 산책로"
+        },
+        {
+          "id": "jeju-ecoland-3",
+          "url": "/images/placeholders/facility.svg",
+          "kind": "facility",
+          "caption": "매표소 옆 수유실"
+        }
+      ],
+      "activityPoints": [
+        "기차 탑승",
+        "호숫가 산책",
+        "피크닉 가든 놀이터"
+      ],
+      "strollerTips": "역마다 데크길이 있지만 일부 구간은 자갈이에요. 바퀴가 큰 유모차가 편해요.",
+      "links": [
+        {
+          "type": "blog",
+          "url": "https://example.com/blog/jeju-ecoland",
+          "title": "이안이와 다녀온 기록 (예시 링크)"
+        }
+      ]
+    },
+    "affiliateLink": {
+      "url": "https://example.com/affiliate/klook/jeju-ecoland",
+      "provider": "klook",
+      "label": "입장권 최저가 확인하기"
+    },
+    "createdAt": "2025-03-01T00:00:00Z",
+    "updatedAt": "2025-03-01T00:00:00Z"
+  },
+  {
+    "id": "jeju-camellia-hill",
+    "regionId": "jeju",
+    "name": "카멜리아힐",
+    "category": "activity",
+    "location": {
+      "lat": 33.2898,
+      "lng": 126.3688,
+      "address": "제주특별자치도 서귀포시 안덕면 병악로 166"
+    },
+    "thumbnail": "/images/placeholders/activity.svg",
+    "shortDescription": "겨울 동백, 여름 수국. 사계절 사진 명소",
+    "ageRanges": [
+      "6-12",
+      "13-24",
+      "24+"
+    ],
+    "seasons": [
+      "summer",
+      "winter"
+    ],
+    "amenities": {
+      "highChair": false,
+      "strollerAccess": true,
+      "diaperStation": true,
+      "nursingRoom": false,
+      "babyMenu": false
+    },
+    "tags": [
+      "꽃",
+      "사진명소"
+    ],
+    "editorReview": {
+      "author": "이안이 엄마",
+      "visitedAt": "2024-12",
+      "babyAgeMonthsAtVisit": 16,
+      "summary": "메인 산책로는 유모차로 갈 수 있지만 일부 오르막이 있어요. 동백꽃 아래에서 찍은 사진이 인생샷이에요.",
+      "photos": [
+        {
+          "id": "jeju-camellia-hill-1",
+          "url": "/images/placeholders/exterior.svg",
+          "kind": "exterior",
+          "caption": "동백 터널"
+        },
+        {
+          "id": "jeju-camellia-hill-2",
+          "url": "/images/placeholders/activity.svg",
+          "kind": "activity",
+          "caption": "수국 길(6월)"
+        }
+      ],
+      "activityPoints": [
+        "동백 터널 산책",
+        "포토존"
+      ],
+      "strollerTips": "정문에서 왼쪽 순환로가 계단이 적어요.",
+      "links": [
+        {
+          "type": "blog",
+          "url": "https://example.com/blog/jeju-camellia-hill",
+          "title": "이안이와 다녀온 기록 (예시 링크)"
+        }
+      ]
+    },
+    "createdAt": "2025-03-01T00:00:00Z",
+    "updatedAt": "2025-03-01T00:00:00Z"
+  },
+  {
+    "id": "jeju-aqua-planet",
+    "regionId": "jeju",
+    "name": "아쿠아플라넷 제주",
+    "category": "activity",
+    "location": {
+      "lat": 33.4327,
+      "lng": 126.9277,
+      "address": "제주특별자치도 서귀포시 성산읍 섭지코지로 95"
+    },
+    "thumbnail": "/images/placeholders/activity.svg",
+    "shortDescription": "비 오는 날 1순위 실내 아쿠아리움",
+    "ageRanges": [
+      "6-12",
+      "13-24",
+      "24+"
+    ],
+    "seasons": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+    ],
+    "amenities": {
+      "highChair": true,
+      "strollerAccess": true,
+      "diaperStation": true,
+      "nursingRoom": true,
+      "babyMenu": true
+    },
+    "tags": [
+      "실내",
+      "우천시",
+      "유모차 대여"
+    ],
+    "editorReview": {
+      "author": "이안이 엄마",
+      "visitedAt": "2024-10",
+      "babyAgeMonthsAtVisit": 14,
+      "summary": "대형 수조 앞에서 아기가 30분 넘게 앉아 있었어요. 수유실이 넓고 깨끗해요.",
+      "photos": [
+        {
+          "id": "jeju-aqua-planet-1",
+          "url": "/images/placeholders/exterior.svg",
+          "kind": "exterior",
+          "caption": "아쿠아리움 외관"
+        },
+        {
+          "id": "jeju-aqua-planet-2",
+          "url": "/images/placeholders/activity.svg",
+          "kind": "activity",
+          "caption": "메인 수조"
+        },
+        {
+          "id": "jeju-aqua-planet-3",
+          "url": "/images/placeholders/facility.svg",
+          "kind": "facility",
+          "caption": "수유실"
+        }
+      ],
+      "activityPoints": [
+        "메인 수조 관람",
+        "오션 아레나 공연"
+      ],
+      "strollerTips": "전 구간 경사로라 유모차 이동이 편해요. 입구에서 유모차를 대여할 수 있어요.",
+      "links": [
+        {
+          "type": "blog",
+          "url": "https://example.com/blog/jeju-aqua-planet",
+          "title": "이안이와 다녀온 기록 (예시 링크)"
+        }
+      ]
+    },
+    "affiliateLink": {
+      "url": "https://example.com/affiliate/myrealtrip/aqua-planet",
+      "provider": "myrealtrip",
+      "label": "입장권 최저가 확인하기"
+    },
+    "createdAt": "2025-03-01T00:00:00Z",
+    "updatedAt": "2025-03-01T00:00:00Z"
+  },
+  {
+    "id": "jeju-hamdeok-beach",
+    "regionId": "jeju",
+    "name": "함덕 해수욕장",
+    "category": "activity",
+    "location": {
+      "lat": 33.543,
+      "lng": 126.6697,
+      "address": "제주특별자치도 제주시 조천읍 조함해안로 525"
+    },
+    "thumbnail": "/images/placeholders/activity.svg",
+    "shortDescription": "수심이 얕고 물이 맑아 아기 첫 바다로 추천",
+    "ageRanges": [
+      "13-24",
+      "24+"
+    ],
+    "seasons": [
+      "summer"
+    ],
+    "amenities": {
+      "highChair": false,
+      "strollerAccess": false,
+      "diaperStation": false,
+      "nursingRoom": false,
+      "babyMenu": false
+    },
+    "tags": [
+      "바다",
+      "무료",
+      "여름"
+    ],
+    "editorReview": {
+      "author": "이안이 엄마",
+      "visitedAt": "2024-07",
+      "babyAgeMonthsAtVisit": 11,
+      "summary": "수심이 얕아서 발 담그기 좋아요. 그늘이 없으니 원터치 텐트를 챙기세요.",
+      "photos": [
+        {
+          "id": "jeju-hamdeok-beach-1",
+          "url": "/images/placeholders/exterior.svg",
+          "kind": "exterior",
+          "caption": "에메랄드빛 바다"
+        },
+        {
+          "id": "jeju-hamdeok-beach-2",
+          "url": "/images/placeholders/activity.svg",
+          "kind": "activity",
+          "caption": "모래놀이"
+        }
+      ],
+      "activityPoints": [
+        "얕은 물 발 담그기",
+        "모래놀이"
+      ],
+      "strollerTips": "모래사장에는 유모차가 들어갈 수 없어요. 산책로까지만 가능해요.",
+      "links": [
+        {
+          "type": "blog",
+          "url": "https://example.com/blog/jeju-hamdeok-beach",
+          "title": "이안이와 다녀온 기록 (예시 링크)"
+        }
+      ]
+    },
+    "createdAt": "2025-03-01T00:00:00Z",
+    "updatedAt": "2025-03-01T00:00:00Z"
+  },
+  {
+    "id": "jeju-black-pork-sample",
+    "regionId": "jeju",
+    "name": "흑돼지 구이집 (예시)",
+    "category": "restaurant",
+    "location": {
+      "lat": 33.5,
+      "lng": 126.53,
+      "address": "제주특별자치도 제주시 (예시 주소)"
+    },
+    "thumbnail": "/images/placeholders/restaurant.svg",
+    "shortDescription": "룸 좌석이 있어 아기와 편하게, 계란찜 서비스",
+    "ageRanges": [
+      "13-24",
+      "24+"
+    ],
+    "seasons": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+    ],
+    "amenities": {
+      "highChair": true,
+      "strollerAccess": true,
+      "diaperStation": false,
+      "nursingRoom": false,
+      "babyMenu": true
+    },
+    "tags": [
+      "흑돼지",
+      "룸좌석"
+    ],
+    "editorReview": {
+      "author": "이안이 엄마",
+      "visitedAt": "2024-10",
+      "babyAgeMonthsAtVisit": 14,
+      "summary": "룸 좌석이라 아기가 돌아다녀도 눈치가 안 보였어요. 계란찜과 된장찌개 두부를 잘 먹었어요.",
+      "photos": [
+        {
+          "id": "jeju-black-pork-sample-1",
+          "url": "/images/placeholders/exterior.svg",
+          "kind": "exterior",
+          "caption": "식당 입구"
+        },
+        {
+          "id": "jeju-black-pork-sample-2",
+          "url": "/images/placeholders/food.svg",
+          "kind": "food",
+          "caption": "계란찜"
+        },
+        {
+          "id": "jeju-black-pork-sample-3",
+          "url": "/images/placeholders/facility.svg",
+          "kind": "facility",
+          "caption": "유아용 의자"
+        }
+      ],
+      "babyFoodPicks": [
+        "계란찜",
+        "된장찌개 속 두부",
+        "흰쌀밥"
+      ],
+      "strollerTips": "1층이고 입구 턱이 낮아 유모차가 그대로 들어가요.",
+      "links": [
+        {
+          "type": "blog",
+          "url": "https://example.com/blog/jeju-black-pork-sample",
+          "title": "이안이와 다녀온 기록 (예시 링크)"
+        }
+      ]
+    },
+    "priceLevel": 2,
+    "createdAt": "2025-03-01T00:00:00Z",
+    "updatedAt": "2025-03-01T00:00:00Z"
+  },
+  {
+    "id": "jeju-gogi-guksu-sample",
+    "regionId": "jeju",
+    "name": "고기국수 맛집 (예시)",
+    "category": "restaurant",
+    "location": {
+      "lat": 33.4996,
+      "lng": 126.519,
+      "address": "제주특별자치도 제주시 (예시 주소)"
+    },
+    "thumbnail": "/images/placeholders/restaurant.svg",
+    "shortDescription": "면을 잘라 주는 가위 제공, 맑은 육수",
+    "ageRanges": [
+      "13-24",
+      "24+"
+    ],
+    "seasons": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+    ],
+    "amenities": {
+      "highChair": true,
+      "strollerAccess": false,
+      "diaperStation": false,
+      "nursingRoom": false,
+      "babyMenu": false
+    },
+    "tags": [
+      "고기국수",
+      "현지맛집",
+      "대기있음"
+    ],
+    "editorReview": {
+      "author": "이안이 엄마",
+      "visitedAt": "2024-10",
+      "babyAgeMonthsAtVisit": 14,
+      "summary": "육수를 조금 덜어서 식혀 주니 아기가 면을 잘 먹었어요. 점심시간엔 30분 대기가 있어요.",
+      "photos": [
+        {
+          "id": "jeju-gogi-guksu-sample-1",
+          "url": "/images/placeholders/exterior.svg",
+          "kind": "exterior",
+          "caption": "식당 외관"
+        },
+        {
+          "id": "jeju-gogi-guksu-sample-2",
+          "url": "/images/placeholders/food.svg",
+          "kind": "food",
+          "caption": "고기국수"
+        }
+      ],
+      "babyFoodPicks": [
+        "고기국수 면(잘라서)",
+        "수육 살코기"
+      ],
+      "strollerTips": "가게가 좁아서 유모차는 밖에 두어야 해요.",
+      "links": [
+        {
+          "type": "blog",
+          "url": "https://example.com/blog/jeju-gogi-guksu-sample",
+          "title": "이안이와 다녀온 기록 (예시 링크)"
+        }
+      ]
+    },
+    "priceLevel": 1,
+    "createdAt": "2025-03-01T00:00:00Z",
+    "updatedAt": "2025-03-01T00:00:00Z"
+  },
+  {
+    "id": "jeju-kids-poolvilla-sample",
+    "regionId": "jeju",
+    "name": "서귀포 키즈 풀빌라 (예시)",
+    "category": "stay",
+    "location": {
+      "lat": 33.254,
+      "lng": 126.41,
+      "address": "제주특별자치도 서귀포시 (예시 주소)"
+    },
+    "thumbnail": "/images/placeholders/stay.svg",
+    "shortDescription": "온수 개별 수영장 + 키즈룸, 아기 식기·욕조 구비",
+    "ageRanges": [
+      "6-12",
+      "13-24",
+      "24+"
+    ],
+    "seasons": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+    ],
+    "amenities": {
+      "highChair": true,
+      "strollerAccess": true,
+      "diaperStation": true,
+      "nursingRoom": false,
+      "babyMenu": false
+    },
+    "tags": [
+      "풀빌라",
+      "키즈룸",
+      "온수풀"
+    ],
+    "editorReview": {
+      "author": "이안이 엄마",
+      "visitedAt": "2024-07",
+      "babyAgeMonthsAtVisit": 11,
+      "summary": "아기 욕조, 범보 의자, 젖병 소독기까지 있어서 짐이 확 줄었어요. 수영장 수온을 미리 요청하세요.",
+      "photos": [
+        {
+          "id": "jeju-kids-poolvilla-sample-1",
+          "url": "/images/placeholders/exterior.svg",
+          "kind": "exterior",
+          "caption": "풀빌라 전경"
+        },
+        {
+          "id": "jeju-kids-poolvilla-sample-2",
+          "url": "/images/placeholders/facility.svg",
+          "kind": "facility",
+          "caption": "키즈룸"
+        },
+        {
+          "id": "jeju-kids-poolvilla-sample-3",
+          "url": "/images/placeholders/facility.svg",
+          "kind": "facility",
+          "caption": "젖병 소독기"
+        }
+      ],
+      "activityPoints": [
+        "온수풀 물놀이",
+        "키즈룸 볼풀"
+      ],
+      "strollerTips": "주차장에서 객실까지 경사로로 연결돼 있어요.",
+      "links": [
+        {
+          "type": "blog",
+          "url": "https://example.com/blog/jeju-kids-poolvilla-sample",
+          "title": "이안이와 다녀온 기록 (예시 링크)"
+        }
+      ]
+    },
+    "affiliateLink": {
+      "url": "https://example.com/affiliate/booking/jeju-poolvilla",
+      "provider": "booking",
+      "label": "예약 및 최저가 확인하기"
+    },
+    "priceLevel": 3,
+    "createdAt": "2025-03-01T00:00:00Z",
+    "updatedAt": "2025-03-01T00:00:00Z"
+  }
+]

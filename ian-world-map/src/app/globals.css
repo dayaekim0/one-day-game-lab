@@ -1,0 +1,13 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand: #ff5a5f;
+  --color-brand-dark: #e04e53;
+  --color-ink: #222222;
+  --color-muted: #717171;
+  --color-line: #ebebeb;
+  --font-sans: "Pretendard", "Apple SD Gothic Neo", "Noto Sans KR", system-ui, sans-serif;
+}
+
+html, body { height: 100%; }
+body { background: #ffffff; color: var(--color-ink); }
