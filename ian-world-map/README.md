@@ -6,7 +6,8 @@
 npm install
 cp .env.example .env.local   # NEXT_PUBLIC_DATA_SOURCE=local
 npm run dev                  # http://localhost:3000
-npm run validate:data        # data/*.json 무결성 검사
+npm run validate:data        # data/ 무결성 검사
+npm run data:missing         # 실제 데이터에서 비어 있는 항목 목록 (--write → docs/data-checklist.md)
 ```
 
 ## 구조
@@ -38,3 +39,8 @@ npm run validate:data        # data/*.json 무결성 검사
 `isSample: true`인 장소·후기와 `guideIsSample: true`인 지역 가이드는 **화면 확인용 데모 데이터**예요. 화면에는 '샘플' 배지가 붙어요.
 이름에 "(예시)"가 붙은 곳은 가상의 장소이고, 제휴·블로그 링크는 `example.com` 자리표시자예요.
 실제 여행 데이터(`data/trips/`, `isSample: false` 장소)에서 확인되지 않은 값은 모두 `null`이에요. 지도 좌표는 대표 지점 기준 대략 위치(`precision: "approximate"`)예요.
+
+## 문서
+- `docs/data-checklist.md` — 실제 여행 데이터 입력 체크리스트 (자동 생성)
+- `docs/supabase-setup.md` — Supabase·카카오·구글 로그인 준비 가이드
+- `data/trips/README.md` — 새 여행 데이터 추가 방법
